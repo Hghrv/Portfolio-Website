@@ -1,19 +1,19 @@
 # Portfolio-Website
 Projects Portfolio
 #
-This Git repository set for the deployed website was mainly written with the following progrmming languages:
+This Git repository set for the deployed website was mainly written with the following programming languages:
   
-  . Linux and Git for version control
+  . Linux and Git for version control;
   
-  . Python 3 for modules handling
+  . Python 3 for modules handling;
   
-  . Pytest for testing
+  . Pytest for testing;
   
-  . TensorFlow for Deeep Learning, 
+  . TensorFlow for Deeep Learning; 
   
-  . Terraform for deployment on Amazon Web Services, 
+  . Terraform for deployment on Amazon Web Services;
   
-  . PostgreSQL for Database processing, 
+  . PostgreSQL for Database processing;
   
   . Html_5, JavaScript and CSS for Web-design.
   
