@@ -1,7 +1,7 @@
 # Portfolio-Website
 Projects Portfolio
 #
-This Git repository set for the deployed website was written with :
+This Git repository set for the deployed website was mainly written with the following progrmming languages:
   
   . Linux and Git for version control
   
