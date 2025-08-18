@@ -9,7 +9,7 @@ This Git repository set for the deployed website was mainly written with the fol
   
   . Pytest for testing;
   
-  . TensorFlow for Deeep Learning; 
+  . TensorFlow and Keras for Deep Learning; 
   
   . Terraform for deployment on Amazon Web Services;
   
