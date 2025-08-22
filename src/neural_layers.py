@@ -114,3 +114,11 @@ nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
 scores_train = nn_model.evaluate(train_set_x, train_set_y)
 print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
 
+# Setting the predictions on the test dataset
+predictions = nn_model.predict(test_set_x)
+predictions = np.argmax(predictions, axis = 1)
+predictions
+
+#
+scores_test = nn_model.evaluate(test_set_x, test_set_y)
+print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
