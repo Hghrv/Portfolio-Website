@@ -119,6 +119,13 @@ predictions = nn_model.predict(test_set_x)
 predictions = np.argmax(predictions, axis = 1)
 predictions
 
-#
+# Setting scores and printing the accuracy in the test dataset
 scores_test = nn_model.evaluate(test_set_x, test_set_y)
 print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
+
+# Visualising different test cases for assessment
+index  = 9997
+k = test_set_x[index, :]
+k = k.reshape((28, 28))
+plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
+plt.imshow(k, cmap='gray')
