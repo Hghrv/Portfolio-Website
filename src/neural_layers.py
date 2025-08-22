@@ -36,7 +36,7 @@ training_data, validation_data, test_data = load_data()
 
 training_data
 
-# Setting the one_hot encoding
+# Setting the one_hot encoding for the target value
 def one_hot(j):
     # input is the target dataset of shape (1, m) where m is the number of data points
     # returns a 2 dimensional array of shape (10, m) where each target value is converted to a one hot encoding
