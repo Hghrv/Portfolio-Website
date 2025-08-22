@@ -97,3 +97,9 @@ k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label= training_data[1][index]))
 plt.imshow(k, cmap='gray')
 
+# creating first instance of sequential model
+nn_model = Sequential()
+nn_model.add(Dense(35, input_dim=784, activation='relu'))
+nn_model.add(Dropout(0.3))
+nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
+nn_model.add(Dense(10, activation='softmax'))
