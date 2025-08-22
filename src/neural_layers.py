@@ -107,3 +107,5 @@ nn_model.add(Dense(10, activation='softmax'))
 # Setting the rossentropic loss function
 nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+# Fitting the model with a minibatch of size 10 and 10 epochs
+nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
