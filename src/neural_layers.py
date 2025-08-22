@@ -36,7 +36,7 @@ training_data, validation_data, test_data = load_data()
 
 training_data
 
-#
+# Printing datasets details
 print("The feature dataset is:" + str(training_data[0]))
 print("The target dataset is:" + str(training_data[1]))
 print("The number of examples in the training dataset is:" + str(len(training_data[0])))
@@ -58,7 +58,7 @@ def one_hot(j):
 data = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 one_hot(data)
 
-#
+# Defining the data_wrapper function
 def data_wrapper():
     tr_d, va_d, te_d = load_data()
     
@@ -76,28 +76,29 @@ def data_wrapper():
     
     return (training_inputs, train_set_y, validation_inputs, validation_set_y)
 
+# Calling the data_wrapper() function and assigning the output to local variables
 train_set_x, train_set_y, test_set_x, test_set_y = data_wrapper()
 
-#
+# Transposing the sets
 train_set_x = train_set_x.T
 train_set_y = train_set_y.T
 test_set_x = test_set_x.T
 test_set_y = test_set_y.T
 
-#
+# Checking that the sets are in the desired shape
 print ("train_set_x shape: " + str(train_set_x.shape))
 print ("train_set_y shape: " + str(train_set_y.shape))
 print ("test_set_x shape: " + str(test_set_x.shape))
 print ("test_set_y shape: " + str(test_set_y.shape))
 
-# Visualising the dataset
+# Visualising the dataset by index to check correct labelling
 index  = 1000
 k = train_set_x[index,:]
 k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label= training_data[1][index]))
 plt.imshow(k, cmap='gray')
 
-# creating first instance of sequential model
+# creating first instance of sequential neural model and adding density (layers, activation function, regulariser)
 nn_model = Sequential()
 nn_model.add(Dense(35, input_dim=784, activation='relu'))
 nn_model.add(Dropout(0.3))
@@ -123,7 +124,7 @@ predictions
 scores_test = nn_model.evaluate(test_set_x, test_set_y)
 print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
 
-# Visualising different test cases for assessment
+# Visualising different test cases for assessment against validation data
 index  = 9997
 k = test_set_x[index, :]
 k = k.reshape((28, 28))
