@@ -36,6 +36,12 @@ training_data, validation_data, test_data = load_data()
 
 training_data
 
+#
+print("The feature dataset is:" + str(training_data[0]))
+print("The target dataset is:" + str(training_data[1]))
+print("The number of examples in the training dataset is:" + str(len(training_data[0])))
+print("The number of points in a single input is:" + str(len(training_data[0][1])))
+
 # Setting the one_hot encoding for the target value
 def one_hot(j):
     # input is the target dataset of shape (1, m) where m is the number of data points
@@ -52,4 +58,42 @@ def one_hot(j):
 data = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 one_hot(data)
 
+#
+def data_wrapper():
+    tr_d, va_d, te_d = load_data()
+    
+    training_inputs = np.array(tr_d[0][:]).T
+    training_results = np.array(tr_d[1][:])
+    train_set_y = one_hot(training_results)
+    
+    validation_inputs = np.array(va_d[0][:]).T
+    validation_results = np.array(va_d[1][:])
+    validation_set_y = one_hot(validation_results)
+    
+    test_inputs = np.array(te_d[0][:]).T
+    test_results = np.array(te_d[1][:])
+    test_set_y = one_hot(test_results)
+    
+    return (training_inputs, train_set_y, validation_inputs, validation_set_y)
+
+train_set_x, train_set_y, test_set_x, test_set_y = data_wrapper()
+
+#
+train_set_x = train_set_x.T
+train_set_y = train_set_y.T
+test_set_x = test_set_x.T
+test_set_y = test_set_y.T
+
+#
+print ("train_set_x shape: " + str(train_set_x.shape))
+print ("train_set_y shape: " + str(train_set_y.shape))
+print ("test_set_x shape: " + str(test_set_x.shape))
+print ("test_set_y shape: " + str(test_set_y.shape))
+
+# Visualising the dataset
+index  = 1000
+k = train_set_x[index,:]
+k = k.reshape((28, 28))
+plt.title('Label is {label}'.format(label= training_data[1][index]))
+plt.imshow(k, cmap='gray')
 
