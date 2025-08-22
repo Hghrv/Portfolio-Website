@@ -109,3 +109,8 @@ nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['ac
 
 # Fitting the model with a minibatch of size 10 and 10 epochs
 nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
+
+# Setting scores and printing the accuracy in the training dataset
+scores_train = nn_model.evaluate(train_set_x, train_set_y)
+print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
+
