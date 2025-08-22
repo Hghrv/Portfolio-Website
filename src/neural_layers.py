@@ -22,5 +22,16 @@ np.random.seed(7)
 
 
 # %matplotlib inline
+ 
+def load_data():
+    f = gzip.open('mnist.pkl.gz', 'rb')
+    f.seek(0)
+    training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
+    f.close()
+    return (training_data, validation_data, test_data)
 
-# 
+training_data, validation_data, test_data = load_data()
+
+training_data
+
+
