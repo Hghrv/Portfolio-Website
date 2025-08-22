@@ -103,3 +103,7 @@ nn_model.add(Dense(35, input_dim=784, activation='relu'))
 nn_model.add(Dropout(0.3))
 nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
 nn_model.add(Dense(10, activation='softmax'))
+
+# Setting the rossentropic loss function
+nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
