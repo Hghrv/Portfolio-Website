@@ -1,11 +1,12 @@
 # Importing Keras and other necessary libraries for the Python API of Tensorflow
+import tensorflow as tf
 import numpy as np
 import pickle
 import gzip
 import matplotlib.pyplot as plt
 import pandas as pd
-#import numpy as np
-#import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
 import h5py
 import sklearn
 import sklearn.datasets
@@ -14,14 +15,11 @@ import scipy
 from PIL import Image
 from scipy import ndimage
 
-
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, BatchNormalization, Activation
 from keras import regularizers
 
 np.random.seed(7)
-
-
 # %matplotlib inline
 
 # Loading the training dataset
@@ -98,20 +96,26 @@ k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label= training_data[1][index]))
 plt.imshow(k, cmap='gray')
 
-# creating first instance of sequential neural model and adding density (layers, activation function, regulariser)
+# Creating first instance of sequential neural model and adding density (layers, activation function, regulariser)
+# First instance without layers
 nn_model = Sequential()
-nn_model.add(Dense(35, input_dim=784, activation='relu'))
+
+# Adding a Dropout for the first layer at 0.3% of neurons in Bayesian dropout for each iteration in order to generate a sparse weight matrix
 nn_model.add(Dropout(0.3))
+
+# Initialising first hidden layer with 35 neurons, 28x28 = 784 components in the input vectors and 'relu' activation function
 nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
+
+# Setting the last softmax layer with 10 classes 
 nn_model.add(Dense(10, activation='softmax'))
 
-# Setting the rossentropic loss function
+# Compiling the model with the crossentropic loss function
 nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fitting the model with a minibatch of size 10 and 10 epochs
 nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
 
-# Setting scores and printing the accuracy in the training dataset
+# Evaluating the model's scores and printing the accuracy in the training dataset
 scores_train = nn_model.evaluate(train_set_x, train_set_y)
 print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
 
@@ -130,3 +134,4 @@ k = test_set_x[index, :]
 k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
 plt.imshow(k, cmap='gray')
+
