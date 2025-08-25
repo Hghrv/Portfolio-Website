@@ -104,7 +104,16 @@ nn_model = Sequential()
 nn_model.add(Dropout(0.3))
 
 # Initialising first hidden layer with 35 neurons, 28x28 = 784 components in the input vectors and 'relu' activation function
+nn_model.add(Dense(35, input_dim=784, activation='relu'))
+
+# Regularising the interconnected neural network
 nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
+
+# Suggestions for network initialization
+# w=np.random.randn(layer_size[l],layer_size[l-1])*0.01
+# w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/layer_size[l-1])
+# w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/(layer_size[l-1]+layer_size{l]))
+# w=np.random.randn(layer_size[l],layer_size[l-1])*(np.sqrt(6/(layer_size[l-1]))+(np.sqrt(6/layer_size{l])))
 
 # Setting the last softmax layer with 10 classes 
 nn_model.add(Dense(10, activation='softmax'))
@@ -134,4 +143,3 @@ k = test_set_x[index, :]
 k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
 plt.imshow(k, cmap='gray')
-
