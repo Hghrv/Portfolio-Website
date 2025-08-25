@@ -100,7 +100,7 @@ plt.imshow(k, cmap='gray')
 # First instance without layers
 nn_model = Sequential()
 
-# Adding a Dropout for the first layer at 0.3% of neurons in Bayesian dropout for each iteration in order to generate a sparse weight matrix
+# Adding a Dropout for the first layer at 0.3% of neurons in Bayesian dropout for each iteration in order to generate a sparse weight matrix after cumulative input
 nn_model.add(Dropout(0.3))
 
 # Initialising first hidden layer with 35 neurons, 28x28 = 784 components in the input vectors and 'relu' activation function
