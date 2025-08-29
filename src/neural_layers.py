@@ -115,7 +115,7 @@ nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2
 # w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/(layer_size[l-1]+layer_size{l]))
 # w=np.random.randn(layer_size[l],layer_size[l-1])*(np.sqrt(6/(layer_size[l-1]))+(np.sqrt(6/layer_size{l])))
 
-# Setting the last softmax layer with 10 classes 
+# Setting a last softmax layer with 10 classes 
 nn_model.add(Dense(10, activation='softmax'))
 
 # Compiling the model with the crossentropic loss function
