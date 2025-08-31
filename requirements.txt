@@ -3,5 +3,8 @@ sklearn
 scipy
 pytest
 flake8
+bandit
 safety
 autopep8
+coverage
+pandas

@@ -110,7 +110,7 @@
           further processing in the Data Science project that will follow.
         </p>
         <p>
-            Relational database can created with PostgreSQL which can be intalled with the following command:
+            Relational databases can created with PostgreSQL which can be intalled with the following command:
         </p>
         <p class="greybox">pip install psql</p>
         <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always 
@@ -146,7 +146,18 @@
         </p>
         <p class="greybox">pip freeze > requirements.txt</p>
         <p class="greybox">pip install -r requirements.txt</p>
-          
+        <p>
+            Autopep8 is added to the list for PEP-8 compliance.
+        </p>
+        <p>
+            Safety and Bandit check for any issues such as SQL injections.
+        </p>
+        <p>
+            Coverage is a package that checks how much of the code is being tested.
+        </p>
+        <p>
+
+        </p>
         <p>
             The entire automation procedure is then deployed remotely, essentially by running a MakeFile in Bash script.
         </p>
@@ -160,11 +171,12 @@
             \link>
         </p>
         <p>Those data are static for now but ideally the management system should eventually be able 
-            to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS). You can view a version of a pipeline previously built with AWS and AWS Lambda 
+            to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS)
+             and Terraform. You can view a version of a pipeline previously built with AWS and AWS Lambda 
         </p>
         <p>
             The data consist of a training set and  a testing set each detailling screen dots with x and y coordinates from handwritten data 
-            from a touch-screen device. 
+            from a touch-screen device. Validation data are also included in this case which means it is possible to assess whether the model's predictions were true or not.
         </p>
         <h2>
             MVP: Most Valuable Product
@@ -180,7 +192,33 @@
             Pandas libraries provide robust packages that enable processors to handle pkl formats and Json protocols efficiently. The code for 
             ingestion is pretty straightforward and looks as below: 
         </p>
-        <p class="greybox">code</p>
+        <p class="greybox">
+        <pre class="greybox">
+        <code>
+        #import Pandas libraries
+        import pandas as pd
+
+        # Loading the training dataset
+        def load_data():
+            f = gzip.open('mnist.pkl.gz', 'rb')
+            f.seek(0)
+            training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
+            f.close()
+            return (training_data, validation_data, test_data)
+                
+        training_data, validation_data, test_data = load_data()
+                
+        training_data
+                
+        # Printing datasets details
+        print("The feature dataset is:" + str(training_data[0]))
+        print("The target dataset is:" + str(training_data[1]))
+        print("The number of examples in the training dataset is:" + str(len(training_data[0])))
+        print("The number of points in a single input is:" + str(len(training_data[0][1])))
+                
+        </code>
+        </pre>
+        </p>
         <p>
             The SQL commands which must ensure that no injection occurs during queries are entered as follow:
         </p>
