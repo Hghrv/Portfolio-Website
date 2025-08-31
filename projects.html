@@ -45,6 +45,7 @@
               Projects portfolio
             </span>
           </a>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -83,15 +84,17 @@
 
     <!-- contact section -->
 
-    <section class="contact_section">
+    <class="contact_section">
       <div class="container">
+        <h2>
+            Deployment and presentation
+        </h2>
         <p>
             The projects presented here are all interconnected. The task here is to build an automated 
             data management system that will feed a deep learning neural network for predictions. Further illustrations will be presented along 
             to provide further references.
-          </p>
-          .
-          
+        </p>
+
         <div class="heading_container">
           <h2>
             Project 1 - Data Engineering: Building an ETL ingestion  Pipeline
@@ -100,23 +103,35 @@
         <p>
             In this section an automated ETL(Extract/Transform/Load) pipeline is 
         being setup to handle data from a remote database. The pipeline output
-         is a data warehouse where processed data are stored in a STAR schema for
-          further processing in the Data Science project that will follow.
-          </p>
+         is a data warehouse where processed data are stored in a STAR schema (relational database) for
+          further processing in the Data Science project that will follow. 
+        </p>
+        <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.</p>
       </div>
-      <div class="container">
+    </div>
+    <div class="container">
       <div class="heading_container">
         <h2>
           Project 2- Data Science: Building an optimised Neural Network for training and predictions from datasets
         </h2>
       </div>
-      <p>
+        <p>
           In this section a Neural Network is being added with optimised hyper-parameters using the Python API of Tensorflow. 
           Tensorflow is a very popular tool used to build and deploy Neural Network. Hence for the purpose of this project, Tensorflow will be the 
-          computing framework for batch processing while compiling will be done by importing the Keras library. One great advantage of using Tensorflow 
-          is that one does not need to write code for the feedforward and back-propagation, but only to set the hyper-parameters such as density of spare weights matrix or 
-          the number of neurons and layers as well as the activation function for the last layer.
+          computing framework for batch processing while compiling will be handled by importing the Keras library.
         </p>
+        <p>One great advantage of using Tensorflow 
+            is that one does not need to write code for the feedforward and back-propagation, but only to set the hyper-parameters such as density of spare weights matrix or 
+            the number of neurons and layers as well as the activation function for the last layer.</p>
+        <p>
+            The chart below illustrates the multilinear neural network for one data point:
+        </p>
+        <img src="" alt="">
+        <p>
+            The chart below illustrates the batch processing matrix for a given batch size after feedforward and back-propagation:
+        </p>
+        <img src="" alt="">
+    
       </div>
     </div>
     
@@ -126,10 +141,11 @@
           Project 3- Data Analytics: Visualising datasets models and assessing accurracy
         </h2>
       </div>
-      <p>
+        <p>
           In this section new data stored in the data warehouse are used to train the model continually and produce a visual chart
           for further monitoring of the data and the model's apparent behaviour.
         </p>
+        <p>Relevant local variables and interactive data can also be visualised dynamically with the use of JavaScript to display variables from the Python environment</p>
       </div>
     </div>
     
