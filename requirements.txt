@@ -2,3 +2,6 @@ matplotlib
 sklearn
 scipy
 pytest
+flake8
+safety
+autopep8

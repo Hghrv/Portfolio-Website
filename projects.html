@@ -112,23 +112,41 @@
         <p>
             Relational database can created with PostgreSQL which can be intalled with the following command:
         </p>
-        <p class="grey">pip install psql</p>
+        <p class="greybox">pip install psql</p>
         <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always 
             working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.
+        </p>
+        <p>
+            Creating the virtual environment:
+        </p>
+        <p class="greybox">
+            pip install pyenv
+        </p>
+        <p class="greybox">
+            python -m venv venv
+        </p>
+        <p>
+            Loading the virtual environment:
+        </p>
+        <p class="greybox">
+            source venv/bin/activate
+        </p>
+        <p>
+            Exporting the python path to the environment:
+        </p>
+        <p class="greybox">
+            export PYTHONPATH=$PWD
         </p>
         <p>
             Pytest can be installed in the virtual environment with the following command: 
         </p>
         <p class="greybox">pip install pytest</p>
-        <p>A gitignore file is also created with */pytest added it so that the test data 
-            are not unnecessarily tracked by the git repository
+
+        <p>A requirement file is ideal in this case to store all the list of packages required for the project and to be installed all at once:
         </p>
-        <p>
-            Loading the virtual environment (pythonpath):
-        </p>
-        <p class="greybox">
-            pythonpath = #pwd
-        </p>
+        <p class="greybox">pip freeze > requirements.txt</p>
+        <p class="greybox">pip install -r requirements.txt</p>
+          
         <p>
             The entire automation procedure is then deployed remotely, essentially by running a MakeFile in Bash script.
         </p>
