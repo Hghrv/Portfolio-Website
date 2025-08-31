@@ -100,13 +100,64 @@
             Project 1 - Data Engineering: Building an ETL ingestion  Pipeline
           </h2>
         </div>
+        <h2>
+            Description
+        </h2>
         <p>
             In this section an automated ETL(Extract/Transform/Load) pipeline is 
         being setup to handle data from a remote database. The pipeline output
          is a data warehouse where processed data are stored in a STAR schema (relational database) for
-          further processing in the Data Science project that will follow. 
+          further processing in the Data Science project that will follow.
         </p>
-        <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.</p>
+        <p>
+            Relational database can created with PostgreSQL which can be intalled with the following command:
+        </p>
+        <p>pip install psql</p>
+        <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always 
+            working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.
+        </p>
+        <p>
+            Pytest can be installed in the virtual environment with the following command: 
+        </p>
+        <p>pip install pytest</p>
+        <p>A gitignore file is also created with */pytest added it so that the test data 
+            are not unnecessarily tracked by the git repository
+        </p>
+        <p>
+            Loading the virtual environment (pythonpath):
+        </p>
+        <p>
+            pythonpath = #pwd
+        </p>
+        <h2>
+            The dataset
+        </h2>
+        <p>
+            The example dataset is accessed via the following link:
+        </p>
+        <p>
+            \link>
+        </p>
+        <p>Those data are static for now but ideally the management system should eventually be able 
+            to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS).
+        </p>
+        <p>
+            The data consist of a training set and  a testing set each detailling screen dots with x and y coordinates from handwritten data 
+            from a touch-screen device. The bot must accurately ingest the data and carry timestamp processing tasks, then store the procesed 
+            data in a data warehouse for the purpose of the Data Science project (in order to translate the hand written letters).
+        </p>
+        <h2>
+            The Code: Python 3 and Pandas libraries
+        </h2>
+        <p>
+            Pandas libraries provide robust packages that enable processors to handle pkl formats and Json protocols efficiently. The code for 
+            ingestion is pretty straightforward and looks as below: 
+        </p>
+        <p>code</p>
+        <p>
+            The SQL commands which must ensure that no injection occurs during queries are entered as follow:
+        </p>
+        <p>code</p>
       </div>
     </div>
     <div class="container">
@@ -125,6 +176,9 @@
             the number of neurons and layers as well as the activation function for the last layer.</p>
         <p>
             The chart below illustrates the multilinear neural network for one data point:
+        </p>
+        <p>
+            Cumulative input = wT*x + b = w1*x1 + w2*x2 + wk*xk + b
         </p>
         <img src="" alt="">
         <p>
@@ -145,7 +199,11 @@
           In this section new data stored in the data warehouse are used to train the model continually and produce a visual chart
           for further monitoring of the data and the model's apparent behaviour.
         </p>
-        <p>Relevant local variables and interactive data can also be visualised dynamically with the use of JavaScript to display variables from the Python environment</p>
+        <p>Relevant local variables and interactive data can also be visualised dynamically with the use of JavaScript to display variables from the Python environment.
+        </p>
+        <p>
+            JavaScript can effectively be used to run the backend python file, while handling frontend tasks.
+        </p>
       </div>
     </div>
     
