@@ -129,6 +129,9 @@
         <p>
             pythonpath = #pwd
         </p>
+        <p>
+            The entire automation procedure is then deployed remotely, essentially by running a MakeFile in Bash script.
+        </p>
         <h2>
             The dataset
         </h2>
@@ -139,12 +142,18 @@
             \link>
         </p>
         <p>Those data are static for now but ideally the management system should eventually be able 
-            to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS).
+            to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS). You can view a version of a pipeline previously built with AWS and AWS Lambda 
         </p>
         <p>
             The data consist of a training set and  a testing set each detailling screen dots with x and y coordinates from handwritten data 
-            from a touch-screen device. The bot must accurately ingest the data and carry timestamp processing tasks, then store the procesed 
-            data in a data warehouse for the purpose of the Data Science project (in order to translate the hand written letters).
+            from a touch-screen device. 
+        </p>
+        <h2>
+            MVP: Most Valuable Product
+        </h2>
+        <p>
+            The bot must accurately ingest the data and carry timestamp processing tasks, then store the procesed 
+            data in a data warehouse for the purpose of the Data Science project, all in order to translate the hand written letters.
         </p>
         <h2>
             The Code: Python 3 and Pandas libraries
