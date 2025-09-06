@@ -24,3 +24,6 @@ test:
 .PHONY: clean
 clean:
 	find . -name "*.pyc" -delete
+
+    rm -rf __pycache__
+	

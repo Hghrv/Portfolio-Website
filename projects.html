@@ -228,7 +228,37 @@
         <p>
             The SQL commands which must ensure that no injection occurs during queries are entered as follow:
         </p>
+        <pre class="greybox">
         <p class="greybox">code</p>
+        </pre>
+        <p>
+          To make it more interactive, engaging and intersting, an API can be built to request the website user
+           to suggest optimisation parameters before running the projects scripts:
+        </p>
+      <pre class="greybox">
+      <p class="greybox">
+        import requests
+
+        def get_suggestion(number):
+            url = "http://numbersapi.com/{}".format(number)
+        
+            r = requests.get(url)
+            if r.status_code == 200:
+                print(r.text)
+            else:
+                print("An error occurred, code={}".format(r.status_code))
+      </p>
+      </pre>
+      <p>
+        This api can then be ran in the corresponding app or module:
+      </p>
+    <pre class="greybox">
+    <p class="greybox">
+      import api
+
+      api.get_suggestion(input("Enter a number to suggest layers density (Ex: 35): "))
+    </p>
+    </pre>
       </div>
     </div>
     <div class="container">
