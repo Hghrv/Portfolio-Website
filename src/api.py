@@ -1,7 +1,7 @@
 import requests
 
 def get_suggestion(number):
-    url = "http://numbersapi.com/{}".format(number)
+    url = "local_endpoint/{}".format(number)
         
     r = requests.get(url)
     if r.status_code == 200:
