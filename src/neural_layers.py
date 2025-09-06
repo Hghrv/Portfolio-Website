@@ -42,9 +42,11 @@ print("The number of points in a single input is:" + str(len(training_data[0][1]
 
 # Setting the one_hot encoding for the target value
 def one_hot(j):
-    # input is the target dataset of shape (1, m) where m is the number of data points
-    # returns a 2 dimensional array of shape (10, m) where each target value is converted to a one hot encoding
-    # Look at the next block of code for a better understanding of one hot encoding
+    """
+    -   input is the target dataset of shape (1, m) where m is the number of data points
+    -   returns a 2 dimensional array of shape (10, m) where each target value is converted to a one hot encoding
+    -   Look at the next block of code for a better understanding of one hot encoding
+    """
     n = j.shape[0]
     new_array = np.zeros((10, n))
     index = 0
@@ -109,11 +111,13 @@ nn_model.add(Dense(35, input_dim=784, activation='relu'))
 # Regularising the interconnected neural network
 nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
 
-# Suggestions for network initialization
-# w=np.random.randn(layer_size[l],layer_size[l-1])*0.01
-# w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/layer_size[l-1])
-# w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/(layer_size[l-1]+layer_size{l]))
-# w=np.random.randn(layer_size[l],layer_size[l-1])*(np.sqrt(6/(layer_size[l-1]))+(np.sqrt(6/layer_size{l])))
+"""
+Suggestions for network initialization:
+w=np.random.randn(layer_size[l],layer_size[l-1])*0.01
+w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/layer_size[l-1])
+w=np.random.randn(layer_size[l],layer_size[l-1])*np.sqrt(2/(layer_size[l-1]+layer_size{l]))
+w=np.random.randn(layer_size[l],layer_size[l-1])*(np.sqrt(6/(layer_size[l-1]))+(np.sqrt(6/layer_size{l])))
+"""
 
 # Setting a last softmax layer with 10 classes 
 nn_model.add(Dense(10, activation='softmax'))
