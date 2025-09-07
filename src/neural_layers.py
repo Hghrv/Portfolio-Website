@@ -125,7 +125,7 @@ w=np.random.randn(layer_size[l],layer_size[l-1])*(np.sqrt(6/(layer_size[l-1]))+(
 # Setting a last softmax layer with 10 classes 
 nn_model.add(Dense(10, activation='softmax'))
 
-# Compiling the model with the crossentropic loss function
+# Compiling and optimising the predictive model with the crossentropic loss function
 nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Implementing batch normalisation accross rows

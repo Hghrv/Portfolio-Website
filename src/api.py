@@ -1,6 +1,6 @@
 import requests
 
-density_level = 0
+density_level = 35
  
 def get_suggestion(number):
     url = "local_endpoint/{}".format(number)
@@ -10,6 +10,6 @@ def get_suggestion(number):
         print("layers density succesfully set at{number}")
     else:
         print("An error occurred, code={}".format(r.status_code))
-        print("Hint: For a good startpoint try again with a positive integer between 10 and 100 (Ex: 35)")
+        print("Hint: For a good startpoint try again with a positive integer between 10 and 100 (Ex: 35 by default)")
     density_level = number
 

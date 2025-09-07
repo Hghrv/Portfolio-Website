@@ -1,3 +1,3 @@
 import api
 
-api.get_suggestion(input("Enter a number to suggest layers density (Ex: 35): "))
+api.get_suggestion(input("Enter a number to suggest layers density (Ex: 35 by default): "))
