@@ -1,5 +1,7 @@
 import requests
 
+density_level = 0
+ 
 def get_suggestion(number):
     url = "local_endpoint/{}".format(number)
         
@@ -9,3 +11,5 @@ def get_suggestion(number):
     else:
         print("An error occurred, code={}".format(r.status_code))
         print("Hint: For a good startpoint try again with a positive integer between 10 and 100 (Ex: 35)")
+    density_level = number
+

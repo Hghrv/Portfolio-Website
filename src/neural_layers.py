@@ -19,6 +19,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, BatchNormalization, Activation
 from keras import regularizers
 
+from api import density_level
+
 np.random.seed(7)
 # %matplotlib inline
 
@@ -106,7 +108,8 @@ nn_model = Sequential()
 nn_model.add(Dropout(0.3))
 
 # Initialising first hidden layer with 35 neurons, 28x28 = 784 components in the input vectors and 'relu' activation function
-nn_model.add(Dense(35, input_dim=784, activation='relu'))
+# nn_model.add(Dense(35, input_dim=784, activation='relu'))
+nn_model.add(Dense(density_level, input_dim=784, activation='relu'))
 
 # Regularising the interconnected neural network
 nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
