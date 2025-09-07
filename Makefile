@@ -7,7 +7,7 @@ PIP = $(VENV)/bin/pip
 # Declare phony target with no prerequisites
 # .PHONY: all
 # all: run
-.PHONY: run clean test
+.PHONY: run clean test pythonpath
 
 # Creating first rule to run the app in the virtual environment:
 run: venv/bin/activate
@@ -26,7 +26,12 @@ run_neural_network: venv/bin/activate, run
 # Creating virtual environment with updated dependencies
 venv/bin/activate: requirements.txt
 	python3 -m venv venv
+	
 	$(PIP) install -r requirements.txt
+
+# Setting the python path to the current working directory
+pythonpath: venv/bin/activate
+	export PYTHONPATH=$PWD
 
 # Run tests
 test: venv/bin/activate
