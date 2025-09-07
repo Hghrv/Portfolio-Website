@@ -128,6 +128,11 @@ nn_model.add(Dense(10, activation='softmax'))
 # Compiling the model with the crossentropic loss function
 nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+# Implementing batch normalisation accross rows
+nn_model.add(BatchNormalization(axis=-1, epsilon=0.001, 
+                         beta_initializer='zeros', 
+                         gamma_initializer='ones'))
+
 # Fitting the model with a minibatch of size 10 and 10 epochs
 nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
 
@@ -150,3 +155,4 @@ k = test_set_x[index, :]
 k = k.reshape((28, 28))
 plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
 plt.imshow(k, cmap='gray')
+
