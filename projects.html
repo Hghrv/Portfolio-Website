@@ -388,8 +388,10 @@
         </p>
         <p>Note the great advantage of Keras' default use of Tensorfow as backend ("backend":"tensorflow") in the 'keras.json' file.
         <p>
-          Note also that batch normalisation in Keras libraries uses a specific type of minimal constant (epsilon) added to the Variance to ensure that the standard deviation is never nil during normalisation. 
-          Batch normalisation in Keras is being implemented with the following code where the 'axis= -1' specifies a normalisation across rows:
+          Note also that batch normalisation in Keras libraries makes efficient use of empirically proven methods too: 
+          Here for instance, a specific minimal constant (epsilon) is being added to the Variance to ensure 
+          that the standard deviation is never nil during normalisation. Batch normalisation in Keras is being 
+          implemented with the following code where the 'axis= -1' specifies a normalisation across rows:
         </p>
         <p class="greybox">
           <pre class="greybox">
