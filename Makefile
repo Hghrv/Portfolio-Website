@@ -40,6 +40,6 @@ test: venv/bin/activate
 # Clean up .pyc files and refresh 
 clean:
 #	find . -name "*.pyc" -delete
-    rm -rf __pycache__
+	rm -rf __pycache__
 	rm -rf venv
 	
