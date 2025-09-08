@@ -528,6 +528,69 @@
             and interactive displays as JavaScript can also effectively be used to run the 
             backend python file, while handling frontend tasks with high efficiency.
         </p>
+        <p>
+          In order to illustrate this concept, a request from is added to the html file for this present wepage,
+           and displayed as below prompting the user to suggest a density level between 10 and 100:
+        </p>
+        <p class="greybox">
+          <pre class="greybox">
+            <code>             
+            &lt;form action="/action_page.php"&gt;
+
+                &lt;label for="fname"&gt;
+                    &lt;p&gt;
+                      Enter a density level for your                   
+                      installed neural network:
+                    &lt;/p&gt;
+                &lt;/label&gt;&lt;br&gt;  
+
+                &lt;input type="text" id="fname" name="fname" value=""&gt;&lt;br&gt;
+
+                  &lt;input type="submit" value="Submit"&gt;
+
+            &lt;/form&gt;
+            </code>
+
+          </pre>
+        </p>
+        <p>
+          Here below is the result after adding that script to the html file for this present 
+          webpage at the desired display point:
+        </p>
+        <form action="/action_page.php" class="col4">
+
+                <label for="fname" class="col1">
+                    <p class="colr1">
+                      Enter a density level for your 
+                    </p>
+                    <p class="colr1">                  
+                      installed neural network:
+                    </p>
+                </label><br>  
+
+                <input class="colr2" type="text" id="fname" name="fname" value=""><br>
+
+                <input class="colr3" type="submit" value="Submit">
+
+        </form>
+
+        <p>
+          Notice however that classes are also added later to hml elements to enable control of size, police, colours and 
+          display from the CSS script.
+        </p>
+        <p>
+          You can try the result yourself with the settings box below which will also trigger the Makefile as 
+          well as related backend modules in the virtual python environment. Keeping in mind that the 
+          variable density_level was set when buiding the API, a visual rendering can be designed on the front end.
+          Javascript makes this possible as you can see in the commented code below:
+        </p>
+        <p class="greybox">
+          <pre class="greybox">
+            
+            # code
+
+          </pre>
+        </p>
       </div>
     </div>
     
