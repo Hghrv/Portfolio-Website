@@ -602,8 +602,28 @@
   <p>&nbsp</p>
         <p>
           Now our frontend point is almost good to go, and a PHP file can specify the actions for 
-          the target buttons.
+          the target buttons. By updating the form parameters with ' action="process.php" method="post" ', while using javascript
+          to specify the action in the process.php file:
         </p>
+        <p class="greybox">
+          <pre class="greybox">
+
+        &lt;?php
+
+            // Using a JavaScript if-statement to trigger the action
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['myButton'])) {
+                // logic of the action after the setting has been submitted by the user
+                echo "Density level submitted successfully!";
+                echo "PHP script executed via JavaScript!";
+                echo "Get set and ready for the next phase of this presention!";
+            }
+            
+        ? &gt;
+
+          </pre>
+        </p>
+        <p>&nbsp</p>
         <p>
           Keeping in mind that the 
           variable density_level was set
