@@ -418,10 +418,47 @@
         <p>
           In this section new data stored in the data warehouse are 
           used to train the neural network continually and produce a visual chart
-          for further monitoring of the data and the model's apparent behaviour 
-          (In Keras, the imported Numpy and Matplotlib modules are working dynamically 
-          using the Tensorflow backend).
+          for further monitoring of the data and the model's apparent behaviour.
         </p>
+        In Keras, the imported Numpy and Matplotlib modules are working dynamically 
+        using the Tensorflow backend. A visual outut of the data may be implemented with Keras as follows:
+        <p class="greybox">
+          <pre class="greybox">
+            
+            # Visualising different test cases for assessment against validation data
+            
+            index  = 9997
+            k = test_set_x[index, :]
+            k = k.reshape((28, 28))
+            plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
+            plt.imshow(k, cmap='gray')
+
+          </pre>
+        </p>
+        <p>
+          The model is eventually being assessed in this data lake to determine its current accuracy metrics for the training dataset and the test dataset:
+        </p>
+        <p class="greybox">
+          <pre class="greybox">
+            
+            # Evaluating the model's scores and printing the accuracy in the training dataset
+            
+            scores_train = nn_model.evaluate(train_set_x, train_set_y)
+            print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
+
+            # Setting the predictions on the test dataset
+            
+            predictions = nn_model.predict(test_set_x)
+            predictions = np.argmax(predictions, axis = 1)
+            predictions
+
+            # Setting scores and printing the accuracy in the test dataset
+            
+            scores_test = nn_model.evaluate(test_set_x, test_set_y)
+            print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
+
+          </pre>
+        </p>        
         <p>Relevant local variables and interactive data can also be visualised dynamically 
           with the use of JavaScript to display variables from the Python environment. In terms 
           of added functionalities however, other Software Engineering frameworks, such as React (JavaScript librairy) or node.js (JavaScript runtime environment)
