@@ -1,29 +1,42 @@
+
 .colr1{
   color: #1ec039;
   background-color: #c1e0b9;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  margin-top: 5vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  justify-content: center; /* Centers horizontally */
+
   
 }
 
 .colr2{
   color: #4512a5;
   background-color: lightgrey;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  width: 20vw;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; 
+  text-align: center; 
 }
 
 .colr3{
   color: #c0671e;
   background-color: #a4e60c;
-  margin-left: 20vw;
+  margin-left: 15vw;
   margin-bottom: 10vw;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;  
+  width: 20vw;
 } 
 .colr4{
   color: #c0671e;
   background-color: rgb(164, 173, 182);
-  
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
 } 
 
 .greybox {
