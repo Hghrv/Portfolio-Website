@@ -1,3 +1,29 @@
+.colr1{
+  color: #1ec039;
+  background-color: #c1e0b9;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vh;
+}
+
+.colr2{
+  color: #4512a5;
+  background-color: lightgrey;
+  margin-left: 10vw;
+}
+
+.colr3{
+  color: #c0671e;
+  background-color: #a4e60c;
+  margin-left: 20vw;
+  margin-bottom: 10vw;
+} 
+.colr4{
+  color: #c0671e;
+  background-color: rgb(164, 173, 182);
+  
+} 
+
 .greybox {
   background-color: lightgrey;
 }
