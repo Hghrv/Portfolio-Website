@@ -593,7 +593,7 @@
           <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
           <p>&nbsp</p>
-          <input class="colr3" type="submit" value="Submit" onclick="Makefile" disabled>            
+          <input id="runMakefile" class="colr3" type="submit" value="Submit" onclick="Makefile" disabled>            
           </label><br>            
           
         </form>
@@ -659,7 +659,7 @@
           (with the 'Submit' button enabled this time!) and also update the last pipelines 
           connections to test that the actions are being triggered on submission:
         </p>
-        <form id="runMakefile" action="process.php" method="POST" class="colr4" >
+        <form id="runMakefile" action="/run-makefile" method="POST" class="colr4" >
           
           <label for="density" class="colr1">
               <p class="colr1">
