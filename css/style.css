@@ -1,4 +1,7 @@
-
+button {
+  display: inline-block; /* Ensures button is shown */
+  pointer-events: auto;  /* Allows button to be clickable */
+}
 .colr1{
   color: #1ec039;
   background-color: #c1e0b9;

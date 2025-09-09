@@ -530,23 +530,23 @@
         </p>
         <p>
           In order to illustrate this concept, a request from is added to the html file for this present wepage,
-           and displayed as below prompting the user to suggest a density level between 10 and 100:
+           and displayed as below prompting the user to suggest a density level between 10 and 100 with or a default value of 35:
         </p>
         <p class="greybox">
           <pre class="greybox">
             <code>             
-            &lt;form action="/action_page.php class="" "&gt;
+            &lt;form action="/process.php method="POST" class="" "&gt;
 
-                &lt;label for="fname" class=""&gt;
+                &lt;label for="density" class=""&gt;
                     &lt;p class=""&gt;
                       Enter a density level for your                   
                       installed neural network:
                     &lt;/p&gt;
                 &lt;/label&gt;&lt;br&gt;  
 
-                &lt;input class="" type="text" id="fname" name="fname" value=""&gt;&lt;br&gt;
+                &lt;input class="" type="text" id="density" name="density" value="35"&gt;&lt;br&gt;
 
-                  &lt;input class="" type="submit" value="Submit"&gt;
+                  &lt;input class="" type="submit" value="Submit" disabled&gt;
 
             &lt;/form&gt;
             </code>
@@ -559,9 +559,9 @@
           webpage at the desired display point:
         </p>
         <p>&nbsp</p>
-        <form action="/action_page.php" class="">
+        <form action="process.php" method="POST" class="">
 
-                <label for="fname" class="">
+                <label for="density" class="">
                     <p class="">
                       Enter a density level for your 
                     </p>
@@ -570,10 +570,10 @@
                     </p>
                 </label><br>  
 
-                <input class="" type="text" id="fname" name="fname" value=""><br>
+                <input class="" type="text" id="density" name="density" value="35" ><br>
 
                 <p>&nbsp</p>
-                <input class="" type="submit" value="Submit">
+                <input class="" type="submit" value="Submit" disabled>
 
         </form>
         <p>&nbsp</p>
@@ -583,26 +583,33 @@
           display from the CSS script (Updated code in the repository). Let's deploy our designed frontend point:        
         </p>
         <p>&nbsp</p>
-        <form action="/action_page.php" class="colr4">
-
-          <label for="fname" class="colr1">
+        <form id="runMakefile" action="process.php" method="POST" class="colr4" >
+          
+          <label for="density" class="colr1">
               <p class="colr1">
                 Enter a density level for the predictive neural network:
               </p>  
-              <p>&nbsp</p>
-
-          <input class="colr2" type="text" id="fname" name="fname" value=""><br>
+              
+          <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
           <p>&nbsp</p>
-          <input class="colr3" type="submit" value="Submit">            
+          <input class="colr3" type="submit" value="Submit" onclick="Makefile" disabled>            
           </label><br>            
           
-
-  </form>
-  <p>&nbsp</p>
+        </form>
+        <script>
+          document.getElementById("runMakefile").addEventListener("click", () => {
+            fetch("/run-makefile", { method: "POST" })
+              .then(response => response.text())
+              .then(data => alert(data))
+              .catch(error => console.error("Error:", error));
+          });
+        </script>
+        <p>&nbsp</p>
         <p>
-          Now our frontend point is almost good to go, and a PHP file can specify the actions for 
-          the target buttons. By updating the form parameters with ' action="process.php" method="post" ', while using javascript
+          Now our frontend point is almost good to go (with the 'submit' button still desactivated), and a PHP file can specify the actions for 
+          the target buttons on the server side. Note that this can also be achieved with Node.js, Python Flask, or Javascript; PHP is somehow 
+          useful as it precedes and overtakes html protocols for faster displays. By updating the form parameters with ' action="process.php" method="post" ', while using javascript
           to specify the action in the process.php file:
         </p>
         <p class="greybox">
@@ -612,17 +619,60 @@
 
             // Using a JavaScript if-statement to trigger the action
             
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['myButton'])) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form'])) {
                 // logic of the action after the setting has been submitted by the user
-                echo "Density level submitted successfully!";
-                echo "PHP script executed via JavaScript!";
+                echo "Density level submitted successfully! PHP script executed via JavaScript.";
                 echo "Get set and ready for the next phase of this presention!";
             }
-            
+
         ? &gt;
 
           </pre>
         </p>
+        <p>&nbsp</p>
+        <p>
+          This process is using JavaScript to trigger the action written in the PHP file. 
+          For this purpose, the setting ' onclick="callPHP()" ' is added as a property of the button element, and the html file can be updated with the following javascript:
+        </p>
+        <p class="greybox">
+          <pre class="greybox">
+            
+            &lt;script&gt;                        
+              function callPHP() {
+                  fetch('process.php', { method: 'POST' })
+                      .then(response => response.text())
+                      .then(data => alert(data));
+              }
+            &lt;/script&gt;
+
+          </pre>
+        </p>
+        <p>&nbsp</p>
+        <p>
+          Let's deploy the result below and update the last pipelines connections:
+        </p>
+        <form id="runMakefile" action="process.php" method="POST" class="colr4" >
+          
+          <label for="density" class="colr1">
+              <p class="colr1">
+                Enter a density level for the predictive neural network:
+              </p>  
+              
+          <input class="colr2" type="text" id="density" name="density" value="35"><br>
+
+          <p>&nbsp</p>
+          <input class="colr3" type="submit" value="Submit" onclick="Makefile">            
+          </label><br>            
+          
+        </form>
+        <script>
+          document.getElementById("runMakefile").addEventListener("click", () => {
+            fetch("/run-makefile", { method: "POST" })
+              .then(response => response.text())
+              .then(data => alert(data))
+              .catch(error => console.error("Error:", error));
+          });
+        </script>
         <p>&nbsp</p>
         <p>
           Keeping in mind that the 
@@ -641,7 +691,7 @@
           </pre>
         </p>
         <p>
-          You can try to visualise the output of the whole pipeline yourself with the settings box below which will also trigger the Makefile as 
+          You can try to visualise the output of the whole pipeline yourself with our lat settings box deployed above, which will also trigger the Makefile as 
           well as related backend modules in the virtual python environment. 
         </p>
       </div>
