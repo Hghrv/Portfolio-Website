@@ -605,9 +605,12 @@
               .catch(error => console.error("Error:", error));
           });
         </script>
+        <p>
+          (Above: Simulation of a display point on the user interface with input-box enabled and  'Submit' button currently disabled.)
+        </p>
         <p>&nbsp</p>
         <p>
-          Now our frontend point is almost good to go (with the 'submit' button still desactivated), and a PHP file can specify the actions for 
+          Now our frontend point is almost good to go (with the 'Submit' button still desactivated), and a PHP file can specify the actions for 
           the target buttons on the server side. Note that this can also be achieved with Node.js, Python Flask, or Javascript; PHP is somehow 
           useful as it precedes and overtakes html protocols for faster displays. By updating the form parameters with ' action="process.php" method="post" ', while using javascript
           to specify the action in the process.php file:
@@ -649,7 +652,9 @@
         </p>
         <p>&nbsp</p>
         <p>
-          Let's deploy the result below and update the last pipelines connections:
+          Let's deploy our resulting user interface on the display point below 
+          (with the 'Submit' button enabled this time!) and also update the last pipelines 
+          connections to test that the action is being triggered on submission:
         </p>
         <form id="runMakefile" action="process.php" method="POST" class="colr4" >
           
@@ -673,6 +678,9 @@
               .catch(error => console.error("Error:", error));
           });
         </script>
+        <p>
+          ('Submit' button enabled after implementing last connections for testing and debugging purposes.)
+        </p>
         <p>&nbsp</p>
         <p>
           Keeping in mind that the 
