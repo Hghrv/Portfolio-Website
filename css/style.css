@@ -42,6 +42,16 @@ button {
   align-items: center;
 } 
 
+.colr5{
+  color: #c0671e;
+  background-color: #1fda4e;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
 .greybox {
   background-color: lightgrey;
 }

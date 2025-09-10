@@ -660,7 +660,7 @@
           (with the 'Submit' button enabled this time!) and also update the last pipelines 
           connections to test that the actions are being triggered on submission:
         </p>
-        <form id="runMakefile" action="/run-makefile" method="POST" class="colr4" >
+        <form id="update" action="_process.php" method="POST" class="colr4" >
           
           <label for="density" class="colr1">
               <p class="colr1">
@@ -675,8 +675,8 @@
           
         </form>
         <script>
-          document.getElementById("runMakefile").addEventListener("click", () => {
-            fetch("/run-makefile", { method: "POST" })
+          document.getElementById("update").addEventListener("click", () => {
+            fetch("/src/api.py", { method: "POST" })
               .then(response => response.text())
               .then(data => alert(data))
               .catch(error => console.error("Error:", error));
@@ -725,7 +725,19 @@
           Typically in such Python Web environment data are commonly extracted from parsed data handled by servers with POST and Get Requests.
           For presentation purposes, let's also deploy a 'Start' button to promt the user to start the demonstration in trial version:
         </p>
-        
+        <p class="colr4">
+          <button id="runMakefile" class="colr5" action="/run-makefile" method="POST" >
+            START
+          </button>
+        </p>  
+        <script>
+          document.getElementById("runMakefile").addEventListener("click", () => {
+            fetch("/run-makefile", { method: "POST" })
+              .then(response => response.text())
+              .then(data => alert(data))
+              .catch(error => console.error("Error:", error));
+          });
+        </script>
         <p>
           You can try to visualise the output of the whole pipeline yourself with our last settings-box deployed above by clicking the 'Submit' button, which will also trigger the Makefile as 
           well as related backend modules in the virtual python environment. 
