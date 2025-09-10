@@ -593,7 +593,7 @@
           <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
           <p>&nbsp</p>
-          <input id="runMakefile" class="colr3" type="submit" value="Submit" onclick="Makefile" disabled>            
+          <input id="runMakefile" class="colr3" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>            
           </label><br>            
           
         </form>
@@ -670,18 +670,10 @@
           <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
           <p>&nbsp</p>
-          <input class="colr3" type="submit" value="Submit" onclick="Makefile">            
+          <input class="colr3" type="submit" value="Submit" onmousehover="alert('Click here to submit')" onclick="alert('Submitting Layers Density value for backend update!')">            
           </label><br>            
           
-        </form>
-        <script>
-          document.getElementById("update").addEventListener("click", () => {
-            fetch("/src/api.py", { method: "POST" })
-              .then(response => response.text())
-              .then(data => alert(data))
-              .catch(error => console.error("Error:", error));
-          });
-        </script>
+        </form>        
         <p>
           ('Submit' button enabled after implementing last connections for testing and debugging purposes.)
         </p>
@@ -725,19 +717,26 @@
           Typically in such Python Web environment data are commonly extracted from parsed data handled by servers with POST and Get Requests.
           For presentation purposes, let's also deploy a 'Start' button to promt the user to start the demonstration in trial version:
         </p>
+        <form id="update" action="run-Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
         <p class="colr4">
-          <button id="runMakefile" class="colr5" action="/run-makefile" method="POST" >
-            START
-          </button>
+          <input class="colr5" value="START" type="submit" onclick="runMakefile()">                   
         </p>  
+        </form>
         <script>
-          document.getElementById("runMakefile").addEventListener("click", () => {
-            fetch("/run-makefile", { method: "POST" })
+          document.getElementById("update").addEventListener("click", () => {
+            fetch("/src/api.py", { method: "POST" })
               .then(response => response.text())
               .then(data => alert(data))
               .catch(error => console.error("Error:", error));
           });
-        </script>
+          function runMakefile() {
+              fetch('/run-makefile', { method: 'POST' })
+                  .then(response => response.text())
+                  .then(data => alert(data))
+                  .catch(error => console.error('Error:', error));
+          }
+          
+      </script>
         <p>
           You can try to visualise the output of the whole pipeline yourself with our last settings-box deployed above by clicking the 'Submit' button, which will also trigger the Makefile as 
           well as related backend modules in the virtual python environment. 

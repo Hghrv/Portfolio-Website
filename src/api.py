@@ -1,7 +1,8 @@
 import requests
-from update_density import update_density
+from update_density import update_density, level
 
-update = update_density()
+# Updating user submission to set density level
+update = max(update_density(), level)
 density_level =  update if update else 35
 if density_level < 10 or density_level > 100:
     density_level = 35

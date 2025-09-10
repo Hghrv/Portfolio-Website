@@ -52,6 +52,16 @@ button {
   margin-bottom: 5vw;
 }
 
+.colr3:hover {
+  background-color: rgb(62, 233, 56); /* Darker green */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.colr5:hover {
+  background-color: rgb(62, 233, 56); /* Darker green */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
 .greybox {
   background-color: lightgrey;
 }
