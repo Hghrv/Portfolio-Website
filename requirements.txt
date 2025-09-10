@@ -9,3 +9,4 @@ autopep8
 coverage
 pandas
 requests
+flask
