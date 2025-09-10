@@ -359,12 +359,82 @@
           There are generally 6 main steps needed in order to implement a neural network model in Keras:
         </p>
         <p>
-          Step 1: Loading the data          
+          Step 1: Loading the data and create timestamped         
         </p>
         <p class="greybox">
           <pre class="greybox">
+            
+            """
+              The loading has already been implemented in Project 1 as an ingestion pipeline with Pandas libraries.
+            
+              Let's process the data with a wrapper and one-hot encoding (handling database columns in arrays) and assign the timestamp reference.                
+            """
+            
 
-            This step has already implemented in Project 1 as an ingestion pipeline with Pandas libraries.
+            # Setting the one_hot encoding for the target value
+            
+            def one_hot(j):
+                """
+                -   input is the target dataset of shape (1, m) where m is the number of data points
+                -   returns a 2 dimensional array of shape (10, m) where each target value is converted to a one hot encoding
+                -   Look at the next block of code for a better understanding of one hot encoding
+                """
+                n = j.shape[0]
+                new_array = np.zeros((10, n))
+                index = 0
+                for res in j:
+                    new_array[res][index] = 1.0
+                    index = index + 1
+                return new_array
+
+            data = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+            one_hot(data)
+
+
+            # Defining the data_wrapper function
+            
+            def data_wrapper():
+                tr_d, va_d, te_d = load_data()
+                
+                training_inputs = np.array(tr_d[0][:]).T
+                training_results = np.array(tr_d[1][:])
+                train_set_y = one_hot(training_results)
+                
+                validation_inputs = np.array(va_d[0][:]).T
+                validation_results = np.array(va_d[1][:])
+                validation_set_y = one_hot(validation_results)
+                
+                test_inputs = np.array(te_d[0][:]).T
+                test_results = np.array(te_d[1][:])
+                test_set_y = one_hot(test_results)
+                
+                return (training_inputs, train_set_y, validation_inputs, validation_set_y)
+
+
+            # Calling the data_wrapper() function and assigning the output to local variables
+            
+            train_set_x, train_set_y, test_set_x, test_set_y = data_wrapper()
+
+
+            # Transposing the sets to ensure that the data-Matrix is in the correct shape
+            train_set_x = train_set_x.T
+            train_set_y = train_set_y.T
+            test_set_x = test_set_x.T
+            test_set_y = test_set_y.T
+
+
+            # Checking that the sets are in the desired shape
+            
+            print ("train_set_x shape: " + str(train_set_x.shape))
+            print ("train_set_y shape: " + str(train_set_y.shape))
+            print ("test_set_x shape: " + str(test_set_x.shape))
+            print ("test_set_y shape: " + str(test_set_y.shape))
+
+            # Getting current timestamp
+            timestamp_current = datetime.now().strftime("%d%m%Y %H%M%S")
+            print('Latest database timestamp: {timestamp_current}')
+
+
           </pre>
         </p>
         <p>

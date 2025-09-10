@@ -20,6 +20,7 @@ from keras.layers import Dense, Dropout, BatchNormalization, Activation
 from keras import regularizers
 
 from api import density_level
+from datetime import datetime
 
 np.random.seed(7)
 # %matplotlib inline
@@ -92,6 +93,10 @@ print ("train_set_x shape: " + str(train_set_x.shape))
 print ("train_set_y shape: " + str(train_set_y.shape))
 print ("test_set_x shape: " + str(test_set_x.shape))
 print ("test_set_y shape: " + str(test_set_y.shape))
+
+# Getting current timestamp
+timestamp_current = datetime.now().strftime("%d%m%Y %H%M%S")
+print('Latest database timestamp: {timestamp_current}')
 
 # Visualising the dataset by index to check correct labelling
 index  = 1000
