@@ -611,7 +611,8 @@
         <p>&nbsp</p>
         <p>
           Now our frontend point is almost good to go (with the 'Submit' button still desactivated), and a PHP file can specify the actions for 
-          the target buttons on the server side (Note that this can also be achieved effectively with Node.js, Python Flask, React or Javascript; PHP is somehow 
+          the target buttons on the server side (Note that this can also be achieved effectively with Node.js, Python Flask, Django, React or 
+          Javascript which are all flexible options; PHP is somehow 
           useful as it precedes and overtakes Html protocols for faster displays).
         </p>
         <p>
@@ -689,18 +690,42 @@
           Keeping in mind that the 
           variable density_level was set
            when buiding the API, a visual rendering
-            can be designed on the front end.
-          Javascript makes this possible as you can 
+            can be designed from the front end.
+          Python makes this possible by implementing
+           an update_density module in the API as you can 
           see in the commented code below:
         </p>
         
         <p class="greybox">
           <pre class="greybox">
             
-            # code
+          from flask import Flask, request
+
+          app = Flask(__name__)
+
+          # Decorating a submit_density() function with the form's action and method
+          
+          @app.route('/submit', methods=['POST'])
+          def update_density():
+              density = request.form['density']  # Accessing form density from user input
+              return density
+
+          #  Enabling detailed error tracebacks during development on main module.
+
+          if __name__ == '__main__':
+              app.run(debug=True)
 
           </pre>
+          <p>
+            (The simple Flask App script above creates an updating unit module ready for import within the API.)
+          </p>
         </p>
+        <p>&nbsp</p>
+        <p>
+          Typically in such Python Web environment data are commonly extracted from parsed data handled by servers with POST and Get Requests.
+          For presentation purposes, let's also deploy a 'Start' button to promt the user to start the demonstration in trial version:
+        </p>
+        
         <p>
           You can try to visualise the output of the whole pipeline yourself with our last settings-box deployed above by clicking the 'Submit' button, which will also trigger the Makefile as 
           well as related backend modules in the virtual python environment. 
