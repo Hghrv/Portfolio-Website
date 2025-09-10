@@ -359,7 +359,7 @@
           There are generally 6 main steps needed in order to implement a neural network model in Keras:
         </p>
         <p>
-          Step 1: Loading the data and create timestamped         
+          Step 1: Loading the data and create timestamps         
         </p>
         <p class="greybox">
           <pre class="greybox">
@@ -369,7 +369,11 @@
             
               Let's process the data with a wrapper and one-hot encoding (handling database columns in arrays) and assign the timestamp reference.                
             """
-            
+
+            # Importing the Python module Datetime to handle timestamping tasks at the end of each loading phase
+
+            from datetime import datetime
+
 
             # Setting the one_hot encoding for the target value
             
@@ -438,6 +442,18 @@
           </pre>
         </p>
         <p>
+          Notice that before batch processing, data are usually pre-processed or 
+          cleaned beforehand to fit the dimensions of a processing matrix (In 
+          this case dimension (n, m) for n data points and m layers for the 
+          overall feedforward and back-propagation). 
+        </p>
+        <p>
+          It is also common practice to timestamp the data to ensure data integrity and 
+          generate timeseries for analysis, for instance in cases where 
+          seasonality would seem to be a strong empiric factor on the predictions.
+        </p>
+        <p>&nbsp</p>
+        <p>
           Step 2: Defining the model          
         </p>
         <p class="greybox">
@@ -464,6 +480,7 @@
 
           </pre>
         </p>
+        <p>&nbsp</p>
         <p>
           Step 3: Compiling         
         </p>
@@ -476,6 +493,7 @@
 
           </pre>
         </p>
+        <p>&nbsp</p>
         <p>
           Step 4: Fitting the model
         </p>
@@ -488,6 +506,7 @@
           
           </pre>
         </p>
+        <p>&nbsp</p>
         <p>
           Step 5: Evaluation
         </p>
@@ -501,6 +520,7 @@
 
           </pre>
         </p>
+        <p>&nbsp</p>
         <p>
           Step 6: Predictions
         </p>
@@ -553,6 +573,15 @@
         <p class="greybox">
           <pre class="greybox">
             
+            # Visualising the dataset by index to check correct labelling
+            
+            index  = 1000
+            k = train_set_x[index,:]
+            k = k.reshape((28, 28))
+            plt.title('Label is {label}'.format(label= training_data[1][index]))
+            plt.imshow(k, cmap='gray')
+
+
             # Visualising different test cases for assessment against validation data
             
             index  = 9997
@@ -563,6 +592,7 @@
 
           </pre>
         </p>
+        <p>&nbsp</p>
         <p>
           The model is eventually being assessed in this data lake to determine its current accuracy metrics for the training dataset and the test dataset:
         </p>
@@ -586,7 +616,8 @@
             print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
 
           </pre>
-        </p>        
+        </p> 
+        <p>&nbsp</p>       
         <p>Relevant local variables and interactive data can also be visualised dynamically 
           with the use of JavaScript to display variables from the Python environment. In terms 
           of added functionalities however, other Software Engineering frameworks, such as React (JavaScript librairy) or node.js (JavaScript runtime environment)
