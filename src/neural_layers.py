@@ -97,6 +97,22 @@ print ("test_set_y shape: " + str(test_set_y.shape))
 # Getting current timestamp
 timestamp_current = datetime.now().strftime("%d%m%Y %H%M%S")
 print('Latest database timestamp: {timestamp_current}')
+"""
+    Timestamps details:
+
+%d: Day of the month (01-31).
+
+%m: Month (01-12).
+
+%Y: Year in four digits.
+
+%H: Hour in 24-hour format (00-23).
+
+%M: Minutes (00-59).
+
+%S: Seconds (00-59).
+
+"""
 
 # Visualising the dataset by index to check correct labelling
 index  = 1000
