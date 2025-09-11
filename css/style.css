@@ -34,6 +34,16 @@ button {
   align-items: center;  
   width: 20vw;
 } 
+
+.colr3_a{
+  color: #c0671e;
+  background-color: #a4e60c;
+  margin-left: 15vw;
+  margin-bottom: 10vw;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;  
+  width: 20vw;
+} 
 .colr4{
   color: #c0671e;
   background-color: rgb(164, 173, 182);

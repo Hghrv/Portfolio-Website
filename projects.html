@@ -684,7 +684,7 @@
           display from the CSS script (Updated code in the repository). Let's deploy our designed frontend point:        
         </p>
         <p>&nbsp</p>
-        <form id="runMakefile" action="process.php" method="POST" class="colr4" >
+        <form  action="process.php" method="POST" class="colr4" >
           
           <label for="density" class="colr1">
               <p class="colr1">
@@ -694,18 +694,11 @@
           <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
           <p>&nbsp</p>
-          <input id="runMakefile" class="colr3" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>            
+          <input class="colr3_a" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>            
           </label><br>            
           
         </form>
-        <script>
-          document.getElementById("runMakefile").addEventListener("click", () => {
-            fetch("/run-makefile", { method: "POST" })
-              .then(response => response.text())
-              .then(data => alert(data))
-              .catch(error => console.error("Error:", error));
-          });
-        </script>
+        
         <p>
           (Above: Simulation of a display point on the user interface with input-box enabled and  'Submit' button currently disabled.)
         </p>
