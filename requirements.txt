@@ -1,13 +1,16 @@
 matplotlib
 sklearn
 scipy
-pytest
+pytest               # for unit testing
 flake8
-bandit
-safety
-autopep8
+bandit               # for security testing
+safety               # for security testing
+autopep8             # for auto PEP8 formatting
 coverage
 pandas
 requests
-flask
-psycopg2
+flask                # for python wed development
+psycopg2             # for sql databse and tables
+psycopg[dev,test]    # for the base Python package
+psycopg_pool         # for the connection pool
+psycopg_c            # for the C speedup module
