@@ -257,10 +257,100 @@
         </p>
         <p>
           - Physic: PostgreSQL will be used to create the database and relational tables via the python script.
+          The tables will be linked by the timestamps attribute in the Entity Relationship Diagram.          
+        </p>
+        <p class="greybox">
+          ERD
         </p>
         <p>
-          The local database and tables can be created using the psycopg2 library. A dedicated create_
+          The local database and tables can be created using the Psycopg2 library. A dedicated warehouse_handler.py 
+           facilitate debugging while carrying this task. 
         </p>
+      </p>
+      <p>
+        Let's create our data warehouse with psql using Psycopg2:
+      </p>
+      <pre class="greybox">
+      <p class="greybox">
+        import psycopg2
+        from psycopg2 import sql
+
+        try:
+            # Connecting to the default 'postgres' database
+            connection = psycopg2.connect(
+                dbname="postgres",
+                user="hgrv",
+                password="hgrv_pass",
+                host="localhost",
+                port="5432"
+            )
+            connection.autocommit = True  # Enable autocommit for database creation
+
+            # Creating a cursor object for SQL script
+            cursor = connection.cursor()
+
+            # Checking whether the database already exists
+            cursor.execute(
+                sql.SQL("SELECT 1 FROM pg_database WHERE datname = %s"),
+                [data_warehouse]
+            )
+            exists = cursor.fetchone()
+
+            # Creating the table for the first instance
+            if not exists:                  
+                # Defining a name for the database for the first instance            
+                database_name = "data_warehouse"
+
+                # Executing a SQL command to create the database if it does not already exist (first instance only)
+                cursor.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(database_name)))
+                print(f"Database '{data_warehouse}' created successfully!")
+            else:
+                print(f"Database '{data_warehouse}' already exists.")
+        except Exception as e:
+            print(f"Error: {e}")
+            print(f"Check the debugging console for any error in the SQL script.")        
+      </p>      
+      </pre>
+      <p>
+        Let's add the tables that will store the following corresponding attributes:
+         'Id' (primary key), 'x-coordinates' and 'y-coordinates'. The connection and cursor 
+      </p>
+      <pre class="greybox">
+        <p class="greybox">
+          try:
+              # SQL query to create a table
+              create_table_query = """
+              CREATE TABLE IF NOT EXISTS test_data (
+                  id SERIAL PRIMARY KEY,                  
+                  x_coordinates NUMERIC(10, 2),
+                  y_coordinates NUMERIC(10, 2),
+                  timestamp DATE DEFAULT CURRENT_DATE
+              );
+              """
+
+              # Executing the query
+              cursor.execute(create_table_query)
+              connection.commit()  # Save changes to the database
+              print("Table 'employees' created successfully!")
+
+          except Exception as error:
+              print(f"Error occurred: {error}")
+              print(f"Check for any error in the SQL script.")
+          finally:
+              # Closing the cursor and connection
+              cursor.close()
+              connection.close()
+          print("PostgreSQL connection is now closed.")
+        </p>
+        </pre>
+        <p>
+          At this point, the data warehouse can be updated with current load of data sets:
+        </p>
+        <pre class="greybox">
+        <p class="greybox">
+
+        </p>
+        </pre>
         <p>
             The SQL commands which must ensure that no injection occurs during queries are entered as follow:
         </p>
