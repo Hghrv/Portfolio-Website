@@ -21,9 +21,16 @@ from keras import regularizers
 
 from api import density_level
 from datetime import datetime
+from warehouse_handler import update_database
 
 np.random.seed(7)
 # %matplotlib inline
+
+# Setting variables to check for new data
+check_train_set_x = []
+check_train_set_y = []
+check_test_set_x = []
+check_test_set_y = []
 
 # Loading the training dataset
 def load_data():
@@ -113,6 +120,16 @@ print('Latest database timestamp: {timestamp_current}')
 %S: Seconds (00-59).
 
 """
+
+# Checking for new data in order to create or update a local database
+if check_train_set_x != train_set_x or check_train_set_y != train_set_y or check_test_set_x != test_set_x or check_test_set_y != test_set_y:
+    check_train_set_x = train_set_x
+    check_train_set_y = train_set_y
+    check_test_set_x = test_set_x
+    check_test_set_y = test_set_y
+
+    # Creating / updating database the update_database() function from the warehouse_handler.py file
+    update_database()
 
 # Visualising the dataset by index to check correct labelling
 index  = 1000
