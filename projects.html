@@ -245,6 +245,22 @@
         </code>
         </pre>
         </p>
+        <p>&nbsp</p>
+        <p>
+          The data warehouse is designed in three stages:         
+        </p>
+        <p>
+          - Concept: Storing loaded training and test datasets in a relational database in a STAR schema. The data warehouse will contain two tables: the training table and the test table. 
+        </p>
+        <p>          
+          - Logic: Primary keys and timestamps are assigned to data points from the data sets to allow dynanamic data tracking and time series analysis. 
+        </p>
+        <p>
+          - Physic: PostgreSQL will be used to create the database and relational tables via the python script.
+        </p>
+        <p>
+          
+        </p>
         <p>
             The SQL commands which must ensure that no injection occurs during queries are entered as follow:
         </p>

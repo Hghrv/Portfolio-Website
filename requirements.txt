@@ -10,3 +10,4 @@ coverage
 pandas
 requests
 flask
+psycopg2
