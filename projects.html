@@ -326,6 +326,12 @@
                   y_coordinates NUMERIC(10, 2),
                   timestamp DATE DEFAULT CURRENT_DATE
               );
+              CREATE TABLE IF NOT EXISTS training_data (
+                  id SERIAL PRIMARY KEY,                  
+                  x_coordinates NUMERIC(10, 2),
+                  y_coordinates NUMERIC(10, 2),
+                  timestamp DATE
+              );
               """
 
               # Executing the query
@@ -335,22 +341,104 @@
 
           except Exception as error:
               print(f"Error occurred: {error}")
+              print(f"Check for any error in the SQL script.")          
+        </p>
+        </pre>
+        <p>
+          At this point, the data warehouse can be updated with the current load of data sets:
+        </p>
+        <pre class="greybox">
+        <p class="greybox">
+          try:               
+              # Data to insert
+              # training_data_to_insert = (train_set_x, train_set_y, timestamp_current)
+              # test_data_to_insert = (test_set_x, test_set_y, timestamp_current)
+              
+              # Inserting x-coordinates, and timestamp into table 'training_data'
+              for item in train_set_x:
+                  # Data to insert
+                  training_data_to_insert = item
+
+                  # SQL query to insert data into tables
+                  insert_query = """
+                  INSERT INTO training_data (x_coordinates, timestamp)
+                  VALUES (train_set_x, timestamp_current)
+                  """
+        
+                  # Execute the query
+                  cursor.execute(insert_query, training_data_to_insert)
+
+                  # Commit the SQL script
+                  connection.commit()              
+                  
+              # Inserting y-coordinates into table 'training_data'
+              for item in train_set_y:
+                  # Data to insert
+                  training_data_to_insert = item
+
+                  # SQL query to insert data into tables
+                  insert_query = """
+                  INSERT INTO training_data (y_coordinates)
+                  VALUES (item, timestamp_current)
+                  """
+        
+                  # Execute the query
+                  cursor.execute(insert_query, training_data_to_insert)
+
+                  # Commit the SQL script
+                  connection.commit()              
+                
+              # Inserting x-coordinates, and timestamp into table 'test_data'
+              for item in test_set_x:
+                  # Data to insert
+                  test_data_to_insert = item
+
+                  # SQL query to insert data into tables
+                  insert_query = """
+                  INSERT INTO test_data (x_coordinates, timestamp)
+                  VALUES (item, timestamp_current)
+                  """
+        
+                  # Execute the query
+                  cursor.execute(insert_query, test_data_to_insert)
+
+                  # Commit the SQL script
+                  connection.commit()              
+                
+              # Inserting y-coordinates into table 'test_data'
+              for item in train_set_y:
+                  # Data to insert
+                  test_data_to_insert = item
+
+                  # SQL query to insert data into tables
+                  insert_query = """
+                  INSERT INTO test_data (y_coordinates)
+                  VALUES (item, timestamp_current)
+                  """
+        
+                  # Execute the query
+                  cursor.execute(insert_query, test_data_to_insert)
+
+                  # Commit the SQL script
+                  connection.commit()  
+
+              print("Data inserted successfully into {data_warehouse}!")
+          except Exception as error:
+              print(f"Error occurred: {error}")
               print(f"Check for any error in the SQL script.")
           finally:
               # Closing the cursor and connection
               cursor.close()
               connection.close()
-          print("PostgreSQL connection is now closed.")
+          print("PostgreSQL connection is now closed.")              
         </p>
         </pre>
         <p>
-          At this point, the data warehouse can be updated with current load of data sets:
+          These 'try-except-finally' clauses are then put together in a
+           function update_data_base() invoqued in the neural_layers.py 
+           file. We must also ensure that there are no duplicates due to 
+           the random pixel effect of handwriting on a touchscreen or touchpad.
         </p>
-        <pre class="greybox">
-        <p class="greybox">
-
-        </p>
-        </pre>
         <p>
             The SQL commands which must ensure that no injection occurs during queries are entered as follow:
         </p>
