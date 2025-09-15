@@ -900,7 +900,7 @@
                       </p>
                   </label><br>  
 
-                  <input class="" type="text" id="density" name="density" value="35" ><br>
+                  <input class="" type="text"  name="density" value="35" ><br>
 
                   <p>&nbsp;</p>
                   <input class="" type="submit" value="Submit" disabled>
@@ -920,7 +920,7 @@
                   Enter a density level for the predictive neural network:
                 </p>
 
-              <input class="colr2" type="text" id="density" name="density" value="35"><br>
+              <input class="colr2" type="text"  name="density" value="35"><br>
 
               <p>&nbsp;</p>
               <input class="colr3_a" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>
@@ -983,7 +983,7 @@
             (with the 'Submit' button enabled this time!) and also update the last pipelines 
             connections to test that the actions are being triggered on submission:
           </p>
-          <form id="update" action="_process.php" method="POST" class="colr4" >
+          <form id="update" action="process.php" method="POST" class="colr4" >
 
             <label class="colr1">
                 <p class="colr1">
@@ -1040,15 +1040,15 @@
             The same result is also achievable with Node.js which is also a very popular option for frontend and software development projects. Typically in such Python Web environments data are commonly extracted from parsed data handled by servers with POST and Get Requests.
             For presentation purposes, let's also deploy a 'Start' button to promt the user to start the demonstration in trial version:
           </p>
-          <form id="update" action="run-Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
+          <form id="update" action="Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
           <p class="colr4">
-            <input class="colr5" value="START" type="submit" onclick="runMakefile()">                   
+            <input class="colr5" value="START" type="submit" onclick="runMakefile()">
           </p>
           </form>
           <script>
 
             function runMakefile() {
-                fetch('/run-makefile', { method: 'POST' })
+                fetch('/makefile', { method: 'POST' })
                     .then(response => response.text())
                     .then(data => alert(data))
                     .catch(error => console.error('Error:', error));
