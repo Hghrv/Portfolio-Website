@@ -18,6 +18,8 @@ run: venv/bin/activate
 run_neural_network: venv/bin/activate, run
 	$(PYTHON) src/neural_layers.py
 
+####################################################################################################
+
 # Install dependencies
 #.PHONY: install
 #install:
@@ -28,14 +30,58 @@ venv/bin/activate: requirements.txt
 	python3 -m venv venv
 	
 	$(PIP) install -r requirements.txt
+	$(PIP) install -r ./requirements.txt -t dependencies/python
 
 # Setting the python path to the current working directory
 pythonpath: venv/bin/activate
 	export PYTHONPATH=$PWD
 
-# Run tests
+################################################################################################################
+# Set Up Tests dependencies
+
+## Install bandit
+bandit:
+	$(PIP) install bandit
+
+## Install flake8
+flake8:
+	$(PIP) install flake8
+
+## Install coverage
+coverage:
+	$(PIP) install coverage
+	$(PIP) install pytest-cov
+
+## Set up dev requirements (bandit, black)
+dev-setup: bandit flake8 coverage
+
+# Build / Run
+
+## Run bandit
+run-bandit:
+	bandit -r src/
+
+## Run flake8
+run-flake8:
+	flake8  ./src/*.py ./test/*.py
+
+## Run the unit tests
+unit-test:
+	PYTHONPATH=${PYTHONPATH} pytest test/ -v
+
+## Run the coverage check
+check-coverage:
+	PYTHONPATH=${PYTHONPATH} pytest --cov=src test/
+
+## Run all checks
+run-checks: run-bandit run-flake8 unit-test check-coverage
+
+
+# Run second routine tests
 test: venv/bin/activate
 	$(PYTHON) -m unittest discover -s tests
+
+
 
 # Clean up .pyc files and refresh 
 clean:
