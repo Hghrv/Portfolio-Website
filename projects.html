@@ -3,14 +3,14 @@
 
 <head>
   <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
   <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="keywords" content="" >
+  <meta name="description" content="" >
+  <meta name="author" content="" >
 
   <title>Projects portfolio</title>
 
@@ -70,7 +70,7 @@
                 </li>
               </ul>
               <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">&nbsp;</button>
               </form>
             </div>
           </div>
@@ -90,7 +90,7 @@
     <section class="contact_section">
         <div class="container">
           <h2>Welcome to this Full-Stack presentation!</h2>
-          <p>Feel free to browse 
+          <p>Feel free to browse
             through projects via the blue links provided below. Enjoy this 
             digital experience of problem solving and critical thinking. </p>
           <h1 id="top">Let's get started!</h1>
@@ -120,8 +120,8 @@
           <p>
             You can visit the Git repository for this portfolio website via the following link:
             <a href="https://hghrv.github.io/Portfolio-Website/">Visit the Git repository</a>
-            .<p>&nbsp;</p>
           </p>
+          <p>&nbsp;</p>
           <div class="heading_container">
             <h2 id="project1">
               Project 1 - Data Engineering: Building an ETL ingestion  Pipeline
@@ -238,17 +238,17 @@
               training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
               f.close()
               return (training_data, validation_data, test_data)
-                  
+
           training_data, validation_data, test_data = load_data()
-                  
+
           training_data
-                  
+
           # Printing datasets details
           print("The feature dataset is:" + str(training_data[0]))
           print("The target dataset is:" + str(training_data[1]))
           print("The number of examples in the training dataset is:" + str(len(training_data[0])))
           print("The number of points in a single input is:" + str(len(training_data[0][1])))
-                  
+
           </code>
           </pre>
           </p>
@@ -259,7 +259,7 @@
           <p>
             - Concept: Storing loaded training and test datasets in a relational database in a STAR schema. The data warehouse will contain two tables: the training table and the test table. 
           </p>
-          <p>          
+          <p>
             - Logic: Primary keys and timestamps are assigned to data points from the data sets to allow dynanamic data tracking and time series analysis. 
           </p>
           <p>
@@ -304,7 +304,7 @@
               exists = cursor.fetchone()
 
               # Creating the table for the first instance
-              if not exists:                  
+              if not exists:
                   # Defining a name for the database for the first instance            
                   database_name = "data_warehouse"
 
@@ -316,7 +316,7 @@
           except Exception as e:
               print(f"Error: {e}")
               print(f"Check the debugging console for any error in the SQL script.")        
-        </p>      
+        </p>
         </pre>
         <p>
           Let's add the tables that will store the following corresponding attributes:
@@ -356,11 +356,11 @@
           </p>
           <pre class="greybox">
           <p class="greybox">
-            try:               
+            try:
                 # Data to insert
                 # training_data_to_insert = (train_set_x, train_set_y, timestamp_current)
                 # test_data_to_insert = (test_set_x, test_set_y, timestamp_current)
-                
+
                 # Inserting x-coordinates, and timestamp into table 'training_data'
                 for item in train_set_x:
                     # Data to insert
@@ -371,13 +371,13 @@
                     INSERT INTO training_data (x_coordinates, timestamp)
                     VALUES (train_set_x, timestamp_current)
                     """
-          
+
                     # Execute the query
                     cursor.execute(insert_query, training_data_to_insert)
 
                     # Commit the SQL script
                     connection.commit()              
-                    
+
                 # Inserting y-coordinates into table 'training_data'
                 for item in train_set_y:
                     # Data to insert
@@ -388,13 +388,13 @@
                     INSERT INTO training_data (y_coordinates)
                     VALUES (item, timestamp_current)
                     """
-          
+
                     # Execute the query
                     cursor.execute(insert_query, training_data_to_insert)
 
                     # Commit the SQL script
                     connection.commit()              
-                  
+
                 # Inserting x-coordinates, and timestamp into table 'test_data'
                 for item in test_set_x:
                     # Data to insert
@@ -405,13 +405,13 @@
                     INSERT INTO test_data (x_coordinates, timestamp)
                     VALUES (item, timestamp_current)
                     """
-          
+
                     # Execute the query
                     cursor.execute(insert_query, test_data_to_insert)
 
                     # Commit the SQL script
                     connection.commit()              
-                  
+
                 # Inserting y-coordinates into table 'test_data'
                 for item in train_set_y:
                     # Data to insert
@@ -422,7 +422,7 @@
                     INSERT INTO test_data (y_coordinates)
                     VALUES (item, timestamp_current)
                     """
-          
+
                     # Execute the query
                     cursor.execute(insert_query, test_data_to_insert)
 
@@ -448,7 +448,7 @@
           </p>
           <p>
               In later projects when setting up the enpoint of an API, those SQL commands  must always ensure that no injection occurs during queries.
-          </p>        
+          </p>
           <p>
             To make the designed platform more interactive, engaging and intersting, an API can be built to request the website user
             to suggest optimisation parameters before running the projects scripts, for the purpose of the following Data Science project:
@@ -459,7 +459,7 @@
 
           def get_suggestion(number):
               url = "http://numbersapi.com/{}".format(number)
-          
+
               r = requests.get(url)
               if r.status_code == 200:
                   print(r.text)
@@ -479,12 +479,14 @@
       </p>
       </pre>
       <p>
-        The orchestration of dependencies is then updated in the Makefile to reflect requirements changes and refresh the virtual environment for processing purposes, deep learning and automation.
+        The orchestration of dependencies is then updated in the Makefile
+         to reflect requirements changes and refresh the virtual environment
+         for processing purposes, deep learning and automation.
       </p>
       <p class="greybox">
         <pre class="greybox">
 
-          
+
         # Define the variables for the Python interpreter
 
         VENV = venv
@@ -492,52 +494,52 @@
         PIP = $(VENV)/bin/pip
 
         # Declare phony target with no prerequisites
-        
+
         .PHONY: run clean test pythonpath
 
         # Creating first rule to run the app in the virtual environment:
-        
+
         run: venv/bin/activate
           $(PYTHON) src/app.py
 
 
         # Run the neural network in the virtual environment with the app as prerequisite
-        
+
         run_neural_network: venv/bin/activate, run
           $(PYTHON) src/neural_layers.py
 
         # Creating virtual environment with updated dependencies
-        
+
         venv/bin/activate: requirements.txt
           python3 -m venv venv
-          
+
           $(PIP) install -r requirements.txt
 
         # Setting the python path to the current working directory
-        
+
         pythonpath: venv/bin/activate
           export PYTHONPATH=$PWD
 
         # Run tests
-        
+
         test: venv/bin/activate
           $(PYTHON) -m unittest discover -s tests
 
         # Clean up .pyc files and refresh 
-        
+
         clean:
           find . -name "*.pyc" -delete
           rm -rf __pycache__
           rm -rf venv
-          
-          
+
+
         </pre>
         <p>
           Once all the handling modules have been set, a backend neural network for deep learning can be added at the end of the pipeline to generate relevant visual outputs and predictive metrics. 
         </p>
       </p>
         </div>
-        
+
       </div>
       <div class="container">
         <div class="heading_container">
@@ -574,10 +576,10 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               """
                 The loading has already been implemented in Project 1 as an ingestion pipeline with Pandas libraries.
-              
+
                 Let's process the data with a wrapper and one-hot encoding (handling database columns in arrays) and assign the timestamp reference.                
               """
 
@@ -587,7 +589,7 @@
 
 
               # Setting the one_hot encoding for the target value
-              
+
               def one_hot(j):
                   """
                   -   input is the target dataset of shape (1, m) where m is the number of data points
@@ -607,27 +609,27 @@
 
 
               # Defining the data_wrapper function
-              
+
               def data_wrapper():
                   tr_d, va_d, te_d = load_data()
-                  
+
                   training_inputs = np.array(tr_d[0][:]).T
                   training_results = np.array(tr_d[1][:])
                   train_set_y = one_hot(training_results)
-                  
+
                   validation_inputs = np.array(va_d[0][:]).T
                   validation_results = np.array(va_d[1][:])
                   validation_set_y = one_hot(validation_results)
-                  
+
                   test_inputs = np.array(te_d[0][:]).T
                   test_results = np.array(te_d[1][:])
                   test_set_y = one_hot(test_results)
-                  
+
                   return (training_inputs, train_set_y, validation_inputs, validation_set_y)
 
 
               # Calling the data_wrapper() function and assigning the output to local variables
-              
+
               train_set_x, train_set_y, test_set_x, test_set_y = data_wrapper()
 
 
@@ -639,7 +641,7 @@
 
 
               # Checking that the sets are in the desired shape
-              
+
               print ("train_set_x shape: " + str(train_set_x.shape))
               print ("train_set_y shape: " + str(train_set_y.shape))
               print ("test_set_x shape: " + str(test_set_x.shape))
@@ -685,20 +687,20 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               # Creating first instance of sequential neural model and adding density (layers, activation function, regulariser)
-              
+
               # First instance without layers
               nn_model = Sequential()
 
               # Adding a Dropout for the first layer at 0.3% of neurons in Bayesian dropout for each iteration in order to generate a sparse weight matrix after cumulative input
               nn_model.add(Dropout(0.3))
-              
+
               # Initialising first hidden layer with 35 neurons, 28x28 = 784 components in the input vectors and 'relu' activation function
               # nn_model.add(Dense(35, input_dim=784, activation='relu'))
               # refactored to request density level from user
               nn_model.add(Dense(density_level, input_dim=784, activation='relu'))
-              
+
               # Regularising the interconnected neural network
               nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))            
 
@@ -709,13 +711,13 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            Step 3: Compiling         
+            Step 3: Compiling
           </p>
           <p class="greybox">
             <pre class="greybox">
 
               # Compiling and optimising the predictive model with the crossentropic loss function
-              
+
               nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
             </pre>
@@ -728,9 +730,9 @@
             <pre class="greybox">
 
               # Fitting the model with a minibatch of size 10 and 10 epochs
-              
+
               nn_model.fit(train_set_x, train_set_y, epochs=10, batch_size=10)
-            
+
             </pre>
           </p>
           <p>&nbsp;</p>
@@ -739,9 +741,9 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               # Evaluating the model's scores and printing the accuracy in the training dataset
-              
+
               scores_train = nn_model.evaluate(train_set_x, train_set_y)
               print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
 
@@ -753,7 +755,7 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               # Setting the predictions on the test dataset
 
               predictions = nn_model.predict(test_set_x)
@@ -770,22 +772,22 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               nn_model.add(BatchNormalization(axis=-1, epsilon=0.001, 
                           beta_initializer='zeros', 
                           gamma_initializer='ones'))
             </pre>
           </p>
-              
+
         </div>
       </div>
       <p>
             &nbsp;
       </p>
-      
+
       <div class="container">
         <div class="heading_container">
-          
+
           <h2 id="project3">
             Project 3- Data Analytics: Visualising datasets models and assessing accurracy
           </h2>
@@ -799,9 +801,9 @@
           using the Tensorflow backend. A visual outut of the data may be implemented with Keras as follows:
           <p class="greybox">
             <pre class="greybox">
-              
+
               # Visualising the dataset by index to check correct labelling
-              
+
               index  = 1000
               k = train_set_x[index,:]
               k = k.reshape((28, 28))
@@ -810,7 +812,7 @@
 
 
               # Visualising different test cases for assessment against validation data
-              
+
               index  = 9997
               k = test_set_x[index, :]
               k = k.reshape((28, 28))
@@ -825,26 +827,26 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
+
               # Evaluating the model's scores and printing the accuracy in the training dataset
-              
+
               scores_train = nn_model.evaluate(train_set_x, train_set_y)
               print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
 
               # Setting the predictions on the test dataset
-              
+
               predictions = nn_model.predict(test_set_x)
               predictions = np.argmax(predictions, axis = 1)
               predictions
 
               # Setting scores and printing the accuracy in the test dataset
-              
+
               scores_test = nn_model.evaluate(test_set_x, test_set_y)
               print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
 
             </pre>
-          </p> 
-          <p>&nbsp;</p>       
+          </p>
+          <p>&nbsp;</p>
           <p>Relevant local variables and interactive data can also be visualised dynamically 
             with the use of JavaScript to display variables from the Python environment. In terms 
             of added functionalities however, other Software Engineering frameworks, such as React (JavaScript librairy) or node.js (JavaScript runtime environment)
@@ -862,7 +864,7 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              <code>             
+              <code>
               &lt;form action="/process.php method="POST" class="" "&gt;
 
                   &lt;label for="density" class=""&gt;
@@ -893,7 +895,7 @@
                       <p class="">
                         Enter a density level for your 
                       </p>
-                      <p class="">                  
+                      <p class="">
                         installed neural network:
                       </p>
                   </label><br>  
@@ -912,20 +914,20 @@
           </p>
           <p>&nbsp;</p>
           <form  action="process.php" method="POST" class="colr4" >
-            
-            <label for="density" class="colr1">
+
+            <label  class="colr1">
                 <p class="colr1">
                   Enter a density level for the predictive neural network:
-                </p>  
-                
-            <input class="colr2" type="text" id="density" name="density" value="35"><br>
+                </p>
 
-            <p>&nbsp;</p>
-            <input class="colr3_a" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>            
-            </label><br>            
-            
+              <input class="colr2" type="text" id="density" name="density" value="35"><br>
+
+              <p>&nbsp;</p>
+              <input class="colr3_a" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>
+            </label><br>
+
           </form>
-          
+
           <p>
             (Above: Simulation of a display point on the user interface with input-box enabled and  'Submit' button currently disabled.)
           </p>
@@ -946,7 +948,7 @@
           &lt;?php
 
               // Using a JavaScript if-statement to trigger the action
-              
+
               if ($_SERVER['REQUEST_METHOD'] === 'POST' &amp;&amp; isset($_POST['form'])) {
                   // logic of the action after the setting has been submitted by the user
                   echo "Density level submitted successfully! PHP script executed via JavaScript.";
@@ -964,8 +966,8 @@
           </p>
           <p class="greybox">
             <pre class="greybox">
-              
-              &lt;script&gt;                        
+
+              &lt;script&gt;
                 function callPHP() {
                     fetch('process.php', { method: 'POST' })
                         .then(response =&gt; response.text())
@@ -982,19 +984,19 @@
             connections to test that the actions are being triggered on submission:
           </p>
           <form id="update" action="_process.php" method="POST" class="colr4" >
-            
-            <label for="density" class="colr1">
+
+            <label class="colr1">
                 <p class="colr1">
                   Enter a density level for the predictive neural network:
-                </p>  
-                
+                </p>
+ 
             <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
             <p>&nbsp;</p>
             <input class="colr3" type="submit" value="Submit" onmousehover="alert('Click here to submit')" onclick="alert('Submitting Layers Density value for backend update.')">            
-            </label><br>            
-            
-          </form>        
+            </label><br>
+
+          </form>
           <p>
             ('Submit' button enabled after implementing last connections for testing and debugging purposes.)
           </p>
@@ -1008,16 +1010,16 @@
             an update_density module in the API as you can 
             see in the commented code below:
           </p>
-          
+
           <p class="greybox">
             <pre class="greybox">
-              
+
             from flask import Flask, request
 
             app = Flask(__name__)
 
             # Decorating a submit_density() function with the form's action and method
-            
+
             @app.route('/submit', methods=['POST'])
             def update_density():
                 density = request.form['density']  # Accessing form density from user input
@@ -1041,7 +1043,7 @@
           <form id="update" action="run-Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
           <p class="colr4">
             <input class="colr5" value="START" type="submit" onclick="runMakefile()">                   
-          </p>  
+          </p>
           </form>
           <script>
 
@@ -1066,12 +1068,12 @@
           </p>
           <p>&nbsp;</p>
           <div class="heading_container">
-          
+
             <h2 id="project4">
               Project 4 - Cloud Computing
             </h2>
-                      
-          </div>        
+
+          </div>
           <p>
             Terraform scripts
           </p>
@@ -1081,14 +1083,14 @@
           <p>
             Scalabilty and tags for higher efficiency
           </p>
-          <p>&nbsp;</p>  
+          <p>&nbsp;</p>
 
           <div class="heading_container">
-          
+
             <h2 id="project5">
               Project 5 - Unit testing and PEP8 compliance
-            </h2>                  
-          </div>        
+            </h2>
+          </div>
           <p>
             Testing with Pytest and Moto3
           </p>
@@ -1097,27 +1099,27 @@
           </p>
           <p>&nbsp;</p>
           <div class="heading_container">
-          
+
             <h2 id="project6">
               Project 6 - Addressing CyberSecurity and Permissions
-            </h2>                  
-          </div>                
+            </h2>
+          </div>
           <p>
             To be updated
           </p>
           <p>&nbsp;</p>
           <div class="heading_container">
-          
+
             <h2 id="project7">
               Project 7 - Draft for a GDPR Offuscator project
-            </h2>                  
-          </div>        
+            </h2>
+          </div>
           <p>
-            To be updated
-          </p>        
+            To be updated soon
+          </p>
           <p>&nbsp;</p>
           <div class="heading_container">
-          
+
           <h2 id="project8">
             Project 8 - Refactoring Machine Learning processes with a visual output
           </h2>                  
@@ -1127,16 +1129,16 @@
           </p>
           <p>
             Visualising Neural Networks with JavaScript librairies
-          </p>    
+          </p>
           <p>&nbsp;</p>
         <p><a href="#top">- Back to Top of Page - </a></p>
-        </div>          
-        
+        </div>
+
       </div>
 
         <div class="container contact_bg layout_padding2-top">
           <div class="row">
-        
+
           </div>
         </div>
     </section>
@@ -1146,7 +1148,7 @@
   </div>
   <!-- info section -->
     <p>
-              
+
     </p>
 
 
