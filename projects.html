@@ -16,24 +16,24 @@
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" >
 
 
   <!-- font wesome stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" >
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" >
 </head>
 
-<body class="sub_page">  
+<body class="sub_page">
     <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -131,7 +131,7 @@
               Description
           </h2>
           <p>
-              In this section an automated ETL(Extract/Transform/Load) pipeline is 
+              In this section an automated ETL (Extract / Transform / Load) pipeline is
           being setup to handle data from a remote database. The pipeline output
           is an ingestion data lake connected a local data warehouse where processed data are stored in a STAR schema (relational databases) for
             further processing in the Data Science project that will follow.
@@ -142,8 +142,8 @@
           <p class="greybox">
               pip install psql
           </p>
-          <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always 
-              working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.
+          <p> A virtual environment is then created for testing purposes to ensure that the software is robust and always
+               working. For testing the library Pytest is being used while a MakeFile ensures automation during deployment.
           </p>
           <p>
               A virtual environment can be created with the following commands:
@@ -202,27 +202,28 @@
           <p class="greybox">
               \img&gt;
           </p>
-          <p>Those data are static for now but ideally the management system should eventually be able 
-              to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS)
-              and Terraform. You can view a version of a pipeline previously built with AWS and AWS Lambda 
+          <p>Those data are static for now but ideally the management system should eventually be able
+               to handle new sets of data dynamically using a cloud computing platform such as Amazon Web Services (AWS)
+               and Terraform. You can view a version of a pipeline previously built with AWS and AWS Lambda
           </p>
           <p>
-              The data consist of a training set and  a testing set each detailling screen dots with x and y coordinates from handwritten data 
-              from a touch-screen device. Validation data are also included in this case which means it is possible to assess whether the model's predictions were true or not.
+              The data consist of a training set and  a testing set each detailling screen dots with x and y coordinates from handwritten data
+               from a touch-screen device. Validation data are also included in this case which means it is possible to assess whether the model's predictions were true or not.
           </p>
           <h2>
               MVP: Most Valuable Product
           </h2>
           <p>
-              The bot must accurately ingest the data and carry timestamp processing tasks, then store the procesed 
-              data in a data warehouse for the purpose of the Data Science project, all in order to translate the hand written letters.
+              The bot must accurately ingest the data and carry timestamp processing tasks, then store the procesed
+               data in a data warehouse for the purpose of the Data Science project, all in order to translate the hand written letters.
           </p>
           <h2>
               The Code: Python 3 and Pandas libraries
           </h2>
           <p>
-              Pandas libraries provide robust packages that enable processors to handle pkl formats and Json protocols efficiently. The code for 
-              ingestion is pretty straightforward and looks as below: 
+              Pandas libraries provide robust packages that enable processors
+               to handle pkl formats and Json protocols efficiently. The code for
+               ingestion is pretty straightforward and looks as below:
           </p>
           <p class="greybox">
           <pre class="greybox">
@@ -254,24 +255,24 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            The data warehouse is designed in three stages:         
+            The data warehouse is designed in three stages:
           </p>
           <p>
-            - Concept: Storing loaded training and test datasets in a relational database in a STAR schema. The data warehouse will contain two tables: the training table and the test table. 
+            - Concept: Storing loaded training and test datasets in a
+             relational database in a STAR schema. The data warehouse will contain two tables: the training table and the test table.
           </p>
           <p>
-            - Logic: Primary keys and timestamps are assigned to data points from the data sets to allow dynanamic data tracking and time series analysis. 
-          </p>
+            - Logic: Primary keys and timestamps are assigned to data points from the data sets to allow dynanamic data tracking and time series analysis.          </p>
           <p>
             - Physic: PostgreSQL will be used to create the database and relational tables via the python script.
-            The tables will be linked by the timestamps attribute in the Entity Relationship Diagram.          
+            The tables will be linked by the timestamps attribute in the Entity Relationship Diagram.
           </p>
           <p>
-            <img src="ERD.png" alt="Entity Relationship Diagram (ERD)" width="500vw" height="170vw">
+            <img src="ERD.png" alt="Entity Relationship Diagram (ERD)" width="500" height="200">
           </p>
           <p>
-            The local database and tables can be created using the Psycopg2 library. A dedicated warehouse_handler.py 
-            facilitate debugging while carrying this task. 
+            The local database and tables can be created using the Psycopg2 library. A dedicated warehouse_handler.py
+            facilitate debugging while carrying this task.
           </p>
         </p>
         <p>
@@ -305,7 +306,7 @@
 
               # Creating the table for the first instance
               if not exists:
-                  # Defining a name for the database for the first instance            
+                  # Defining a name for the database for the first instance
                   database_name = "data_warehouse"
 
                   # Executing a SQL command to create the database if it does not already exist (first instance only)
@@ -315,12 +316,12 @@
                   print(f"Database '{data_warehouse}' already exists.")
           except Exception as e:
               print(f"Error: {e}")
-              print(f"Check the debugging console for any error in the SQL script.")        
+              print(f"Check the debugging console for any error in the SQL script.")
         </p>
         </pre>
         <p>
           Let's add the tables that will store the following corresponding attributes:
-          'id' (primary key), 'x-coordinates' and 'y-coordinates'. The connection and cursor 
+          'id' (primary key), 'x-coordinates' and 'y-coordinates'. The connection and cursor
         </p>
         <pre class="greybox">
           <p class="greybox">
@@ -328,13 +329,13 @@
                 # SQL query to create a table
                 create_table_query = """
                 CREATE TABLE IF NOT EXISTS test_data (
-                    id SERIAL PRIMARY KEY,                  
+                    id SERIAL PRIMARY KEY,
                     x_coordinates NUMERIC(10, 2),
                     y_coordinates NUMERIC(10, 2),
                     timestamp DATE DEFAULT CURRENT_DATE
                 );
                 CREATE TABLE IF NOT EXISTS training_data (
-                    id SERIAL PRIMARY KEY,                  
+                    id SERIAL PRIMARY KEY,
                     x_coordinates NUMERIC(10, 2),
                     y_coordinates NUMERIC(10, 2),
                     timestamp DATE
@@ -348,7 +349,7 @@
 
             except Exception as error:
                 print(f"Error occurred: {error}")
-                print(f"Check for any error in the SQL script.")          
+                print(f"Check for any error in the SQL script.")
           </p>
           </pre>
           <p>
@@ -376,7 +377,7 @@
                     cursor.execute(insert_query, training_data_to_insert)
 
                     # Commit the SQL script
-                    connection.commit()              
+                    connection.commit()
 
                 # Inserting y-coordinates into table 'training_data'
                 for item in train_set_y:
@@ -393,7 +394,7 @@
                     cursor.execute(insert_query, training_data_to_insert)
 
                     # Commit the SQL script
-                    connection.commit()              
+                    connection.commit()
 
                 # Inserting x-coordinates, and timestamp into table 'test_data'
                 for item in test_set_x:
@@ -410,7 +411,7 @@
                     cursor.execute(insert_query, test_data_to_insert)
 
                     # Commit the SQL script
-                    connection.commit()              
+                    connection.commit()
 
                 # Inserting y-coordinates into table 'test_data'
                 for item in train_set_y:
@@ -427,7 +428,7 @@
                     cursor.execute(insert_query, test_data_to_insert)
 
                     # Commit the SQL script
-                    connection.commit()  
+                    connection.commit()
 
                 print("Data inserted successfully into {data_warehouse}!")
             except Exception as error:
@@ -437,13 +438,13 @@
                 # Closing the cursor and connection
                 cursor.close()
                 connection.close()
-            print("PostgreSQL connection is now closed.")              
+            print("PostgreSQL connection is now closed.")
           </p>
           </pre>
           <p>
             These 'try-except-finally' clauses are then put together in a
-            function update_data_base() invoqued in the neural_layers.py 
-            file. We must also ensure that there are no duplicates due to 
+            function update_data_base() invoqued in the neural_layers.py
+            file. We must also ensure that there are no duplicates due to
             the random pixel effect of handwriting on a touchscreen or touchpad.
           </p>
           <p>
@@ -525,7 +526,7 @@
         test: venv/bin/activate
           $(PYTHON) -m unittest discover -s tests
 
-        # Clean up .pyc files and refresh 
+        # Clean up .pyc files and refresh
 
         clean:
           find . -name "*.pyc" -delete
@@ -535,7 +536,9 @@
 
         </pre>
         <p>
-          Once all the handling modules have been set, a backend neural network for deep learning can be added at the end of the pipeline to generate relevant visual outputs and predictive metrics. 
+          Once all the handling modules have been set, a backend neural network for
+           deep learning can be added at the end of the pipeline to generate relevant
+            visual outputs and predictive metrics.
         </p>
       </p>
         </div>
@@ -548,13 +551,14 @@
           </h2>
         </div>
           <p>
-            In this section a Neural Network is being added with optimised hyper-parameters using the Python API of Tensorflow. 
-            Tensorflow is a very popular tool used to build and deploy Neural Network. Hence for the purpose of this project, Tensorflow will be the 
-            computing framework for batch processing while compiling will be handled by importing the Keras library.
+            In this section a Neural Network is being added with optimised hyper-parameters using the Python API of Tensorflow.
+             Tensorflow is a very popular tool used to build and deploy Neural Network. Hence for the purpose of this project, Tensorflow will be the
+             computing framework for batch processing while compiling will be handled by importing the Keras library.
           </p>
-          <p>One great advantage of using Tensorflow 
-              is that one does not need to write code for the feedforward and back-propagation, but only to set the hyper-parameters such as density of spare weights matrix or 
-              the number of neurons and layers as well as the activation function for the last layer.</p>
+          <p>One great advantage of using Tensorflow
+               is that one does not need to write code for the feedforward and back-propagation,
+                but only to set the hyper-parameters such as density of spare weights matrix or
+               the number of neurons and layers as well as the activation function for the last layer.</p>
           <p>
               The chart below illustrates the multilinear neural network for one data point:
           </p>
@@ -572,7 +576,7 @@
             There are generally 6 main steps needed in order to implement a neural network model in Keras:
           </p>
           <p>
-            Step 1: Loading the data and create timestamps         
+            Step 1: Loading the data and create timestamps
           </p>
           <p class="greybox">
             <pre class="greybox">
@@ -580,7 +584,8 @@
               """
                 The loading has already been implemented in Project 1 as an ingestion pipeline with Pandas libraries.
 
-                Let's process the data with a wrapper and one-hot encoding (handling database columns in arrays) and assign the timestamp reference.                
+                Let's process the data with a wrapper and one-hot encoding
+                 (handling database columns in arrays) and assign the timestamp reference.
               """
 
               # Importing the Python module Datetime to handle timestamping tasks at the end of each loading phase
@@ -671,19 +676,19 @@
             </pre>
           </p>
           <p>
-            Notice that before batch processing, data are usually pre-processed or 
-            cleaned beforehand to fit the dimensions of a processing matrix (In 
-            this case dimension (n, m) for n data points and m layers for the 
-            overall feedforward and back-propagation). 
+            Notice that before batch processing, data are usually pre-processed or
+             cleaned beforehand to fit the dimensions of a processing matrix (In
+             this case dimension (n, m) for n data points and m layers for the
+             overall feedforward and back-propagation)
           </p>
           <p>
-            It is also common practice to timestamp the data to ensure data integrity and 
-            generate timeseries for analysis, for instance in cases where 
-            seasonality would seem to be a strong empiric factor on the predictions.
+            It is also common practice to timestamp the data to ensure data integrity and
+             generate timeseries for analysis, for instance in cases where
+             seasonality would seem to be a strong empiric factor on the predictions.
           </p>
           <p>&nbsp;</p>
           <p>
-            Step 2: Defining the model          
+            Step 2: Defining the model
           </p>
           <p class="greybox">
             <pre class="greybox">
@@ -702,9 +707,9 @@
               nn_model.add(Dense(density_level, input_dim=784, activation='relu'))
 
               # Regularising the interconnected neural network
-              nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))            
+              nn_model.add(Dense(21, activation = 'relu', kernel_regularizer = regularizers.l2(0.01)))
 
-              # Setting a last softmax layer with 10 classes 
+              # Setting a last softmax layer with 10 classes
               nn_model.add(Dense(10, activation='softmax'))
 
             </pre>
@@ -765,16 +770,16 @@
           </p>
           <p>Note the great advantage of Keras' default use of Tensorfow as backend ("backend":"tensorflow") in the 'keras.json' file.
           <p>
-            Note also that batch normalisation in Keras libraries makes efficient use of empirically proven methods too: 
-            Here for instance, a specific minimal constant (epsilon) is being added to the Variance to ensure 
-            that the standard deviation is never nil during normalisation. Batch normalisation in Keras is being 
-            implemented with the following code where the 'axis= -1' specifies a normalisation across rows:
+            Note also that batch normalisation in Keras libraries makes efficient use of empirically proven methods too:
+             Here for instance, a specific minimal constant (epsilon) is being added to the Variance to ensure
+             that the standard deviation is never nil during normalisation. Batch normalisation in Keras is being
+             implemented with the following code where the 'axis= -1' specifies a normalisation across rows:
           </p>
           <p class="greybox">
             <pre class="greybox">
 
-              nn_model.add(BatchNormalization(axis=-1, epsilon=0.001, 
-                          beta_initializer='zeros', 
+              nn_model.add(BatchNormalization(axis=-1, epsilon=0.001,
+                          beta_initializer='zeros',
                           gamma_initializer='ones'))
             </pre>
           </p>
@@ -793,12 +798,12 @@
           </h2>
         </div>
           <p>
-            In this section new data stored in the data warehouse are 
-            used to train the neural network continually and produce a visual chart
-            for further monitoring of the data and the model's apparent behaviour.
+            In this section new data stored in the data warehouse are
+             used to train the neural network continually and produce a visual chart
+             for further monitoring of the data and the model's apparent behaviour.
           </p>
-          In Keras, the imported Numpy and Matplotlib modules are working dynamically 
-          using the Tensorflow backend. A visual outut of the data may be implemented with Keras as follows:
+          In Keras, the imported Numpy and Matplotlib modules are working dynamically
+           using the Tensorflow backend. A visual outut of the data may be implemented with Keras as follows:
           <p class="greybox">
             <pre class="greybox">
 
@@ -847,16 +852,17 @@
             </pre>
           </p>
           <p>&nbsp;</p>
-          <p>Relevant local variables and interactive data can also be visualised dynamically 
-            with the use of JavaScript to display variables from the Python environment. In terms 
-            of added functionalities however, other Software Engineering frameworks, such as React (JavaScript librairy) or node.js (JavaScript runtime environment)
-            for example, can also provide highly efficient ways to build similar frontend projects.
+          <p>Relevant local variables and interactive data can also be visualised dynamically
+             with the use of JavaScript to display variables from the Python environment. In terms
+             of added functionalities however, other Software Engineering frameworks, such as React
+             (JavaScript librairy) or node.js (JavaScript runtime environment)
+             for example, can also provide highly efficient ways to build similar frontend projects.
 
           </p>
           <p>
-              In this regard, it is worth noting the power of Python 3 and JavaScript alone during automation 
-              and interactive displays as JavaScript can also effectively be used to run the 
-              backend python file, while handling frontend tasks with high efficiency.
+              In this regard, it is worth noting the power of Python 3 and JavaScript alone during automation
+               and interactive displays as JavaScript can also effectively be used to run the
+               backend python file, while handling frontend tasks with high efficiency.
           </p>
           <p>
             In order to illustrate this concept, a request from is added to the html file for this present wepage,
@@ -869,10 +875,10 @@
 
                   &lt;label for="density" class=""&gt;
                       &lt;p class=""&gt;
-                        Enter a density level for your                   
+                        Enter a density level for your
                         installed neural network:
                       &lt;/p&gt;
-                  &lt;/label&gt;&lt;br&gt;  
+                  &lt;/label&gt;&lt;br&gt;
 
                   &lt;input class="" type="text" id="density" name="density" value="35"&gt;&lt;br&gt;
 
@@ -885,20 +891,20 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            Here below is the result after adding that script to the html file for this present 
-            webpage at the desired display point:
+            Here below is the result after adding that script to the html file for this present
+             webpage at the desired display point:
           </p>
           <p>&nbsp;</p>
           <form action="process.php" method="POST" class="">
 
                   <label for="density" class="">
                       <p class="">
-                        Enter a density level for your 
+                        Enter a density level for your
                       </p>
                       <p class="">
                         installed neural network:
                       </p>
-                  </label><br>  
+                  </label><br>
 
                   <input class="" type="text"  name="density" value="35" ><br>
 
@@ -909,8 +915,10 @@
           <p>&nbsp;</p>
 
           <p>
-            Notice however that classes are also added later to hml elements to enable control of size, police, colours and 
-            display from the CSS script (Updated code in the repository). Let's deploy our designed frontend point:        
+            Notice however that classes are also added later to hml elements
+             to enable control of size, police, colours and
+             display from the CSS script (Updated code in the repository).
+              Let's deploy our designed frontend point:
           </p>
           <p>&nbsp;</p>
           <form  action="process.php" method="POST" class="colr4" >
@@ -933,10 +941,12 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            Now our frontend point is almost good to go (with the 'Submit' button still desactivated), and a PHP file can specify the actions for 
-            the target buttons on the server side (Note that this can also be achieved effectively with Node.js, Python Flask, Django, React or 
-            Javascript which are all flexible options; PHP is somehow 
-            useful as it precedes and overtakes Html protocols for faster displays).
+            Now our frontend point is almost good to go (with the 'Submit' button still
+             desactivated), and a PHP file can specify the actions for
+             the target buttons on the server side (Note that this can also be achieved
+              effectively with Node.js, Python Flask, Django, React or
+             Javascript which are all flexible options; PHP is somehow
+             useful as it precedes and overtakes Html protocols for faster displays).
           </p>
           <p>
             Html actions can be set by updating the form parameters with ' action="process.php" method="post" ', while using javascript
@@ -961,8 +971,9 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            This process is using JavaScript to trigger the action written in the PHP file. 
-            For this purpose, the setting ' onclick="callPHP()" ' is added as a property of the button element, and the html file can be updated with the following javascript:
+            This process is using JavaScript to trigger the action written in the PHP file.
+             For this purpose, the setting ' onclick="callPHP()" ' is added as a property
+              of the button element, and the html file can be updated with the following javascript:
           </p>
           <p class="greybox">
             <pre class="greybox">
@@ -979,9 +990,9 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            Let's deploy our resulting user interface on the display point below 
-            (with the 'Submit' button enabled this time!) and also update the last pipelines 
-            connections to test that the actions are being triggered on submission:
+            Let's deploy our resulting user interface on the display point below
+             (with the 'Submit' button enabled this time!) and also update the last pipelines
+             connections to test that the actions are being triggered on submission:
           </p>
           <form id="update" action="process.php" method="POST" class="colr4" >
 
@@ -989,7 +1000,7 @@
                 <p class="colr1">
                   Enter a density level for the predictive neural network:
                 </p>
- 
+
             <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
             <p>&nbsp;</p>
@@ -1002,13 +1013,13 @@
           </p>
           <p>&nbsp;</p>
           <p>
-            Keeping in mind that the 
-            variable density_level was set
-            when buiding the API, a visual rendering
+            Keeping in mind that the
+             variable density_level was set
+             when buiding the API, a visual rendering
               can be designed from the front end.
-            Python makes this possible by implementing
-            an update_density module in the API as you can 
-            see in the commented code below:
+             Python makes this possible by implementing
+             an update_density module in the API as you can
+             see in the commented code below:
           </p>
 
           <p class="greybox">
@@ -1063,8 +1074,10 @@
             
           </script>
           <p>
-            You can try to visualise the output of the whole pipeline yourself with our last settings-box deployed above by clicking the 'Submit' button, which will also trigger the Makefile as 
-            well as related backend modules in the virtual python environment. 
+            You can try to visualise the output of the whole pipeline yourself
+             with our last settings-box deployed above by clicking the
+              'Submit' button, which will also trigger the Makefile as
+             well as related backend modules in the virtual python environment.
           </p>
           <p>&nbsp;</p>
           <div class="heading_container">
@@ -1122,8 +1135,8 @@
 
           <h2 id="project8">
             Project 8 - Refactoring Machine Learning processes with a visual output
-          </h2>                  
-          </div>        
+          </h2>
+          </div>
           <p>
             Empirically proven methods for hyper-parameters optimisation and initialisation
           </p>
@@ -1167,9 +1180,13 @@
     </p>
     <p>&nbsp;</p>
     <p>
-      Note: For the purpose of this website, basic scripts (HTML, CSS, JavaScript) were edited 
-      in 2025 by the author/user and further virtual environments and automated APIs layers were added for presentation, testing, 
-      demonstration, and educational purposes. Version Control, Testing and Deployment were handled with Linux Command Line Interface, Git and Python 3 mainly.
+      Note: For the purpose of this website, basic scripts (HTML, CSS, JavaScript) were edited
+       in 2025 by the author/user and further virtual environments and automated APIs layers
+        were added for presentation, testing,
+       demonstration, and educational purposes.
+        Version Control, Testing and Deployment were handled
+         with Linux Command Line Interface, Git and
+          Python 3 mainly.
     </p>
   </section>
   <!-- footer section -->
