@@ -980,7 +980,7 @@
 
               &lt;script&gt;
                 function callPHP() {
-                    fetch('process.php', { method: 'POST' })
+                    fetch('process.js', { method: 'POST' })
                         .then(response =&gt; response.text())
                         .then(data =&gt; alert(data));
                 }
@@ -1004,10 +1004,24 @@
             <input class="colr2" type="text" id="density" name="density" value="35"><br>
 
             <p>&nbsp;</p>
-            <input class="colr3" type="submit" value="Submit" onmousehover="alert('Click here to submit')" >
+            <button class="colr3" type="submit" value="Submit" onmousehover="alert('Click here to submit')" >Submit</button>
             </label><br>
 
           </form>
+          <script>
+            // Attach an event listener to the form
+            document.getElementById('update').addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent the default form submission behavior
+              console.log('Form submitted!'); // Your JavaScript logic here
+              alert('Submitting hyper-parameter ...');
+              fetch("/src/api.py", { method: "POST" }) 
+                .then(response => response.text()) 
+                .then(data => alert(data)) 
+                .catch(error => console.error("Error:", error));
+              alert("Density level submitted successfully!");
+              alert("Get set and ready for the next phase of this presention!");
+            });
+          </script>
           <p>
             ('Submit' button enabled after implementing last connections for testing and debugging purposes.)
           </p>
@@ -1051,7 +1065,7 @@
             The same result is also achievable with Node.js which is also a very popular option for frontend and software development projects. Typically in such Python Web environments data are commonly extracted from parsed data handled by servers with POST and Get Requests.
             For presentation purposes, let's also deploy a 'Start' button to promt the user to start the demonstration in trial version:
           </p>
-          <form id="update" action="Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
+          <form id="setup" action="Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
           <p class="colr4">
             <input class="colr5" value="START" type="submit" onclick="runMakefile()">
           </p>
@@ -1059,12 +1073,23 @@
           <script>
 
             function runMakefile() {
-                fetch('/makefile', { method: 'POST' })
+                fetch('/Makefile', { method: 'POST' })
                     .then(response => response.text())
                     .then(data => alert(data))
                     .catch(error => console.error('Error:', error));
 
-            document.getElementById("update").addEventListener("click", () => {
+            document.getElementById("setup").addEventListener("submit", () => {
+                fetch("/src/api.py", { method: "POST" }) 
+                  .then(response => response.text()) 
+                  .then(data => alert(data)) 
+                  .catch(error => console.error("Error:", error));
+                alert("Density level submitted.");
+                alert("JavaScript executed successfully!");
+                alert("Get set and ready for the next phase of this presention.");    
+              });
+    
+
+            document.getElementById("update").addEventListener("submit", () => {
               fetch("/src/api.py", { method: "POST" })
                 .then(response => response.text())
                 .then(data => alert(data))
