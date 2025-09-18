@@ -961,7 +961,7 @@
 
               if ($_SERVER['REQUEST_METHOD'] === 'POST' &amp;&amp; isset($_POST['form'])) {
                   // logic of the action after the setting has been submitted by the user
-                  echo "Density level submitted successfully! PHP script executed via JavaScript.";
+                  echo "Density level submitted successfully! JavaScript executed via PHP script.";
                   echo "Get set and ready for the next phase of this presention!";
               }
 
@@ -980,7 +980,7 @@
 
               &lt;script&gt;
                 function callPHP() {
-                    fetch('process.js', { method: 'POST' })
+                    fetch('process.php', { method: 'POST' })
                         .then(response =&gt; response.text())
                         .then(data =&gt; alert(data));
                 }
