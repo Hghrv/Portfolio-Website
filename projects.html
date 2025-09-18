@@ -1071,8 +1071,8 @@
             <p>
             For presentation purposes, let's use Data Engineering skills
              to also deploy a 'Start'button using the Javascript fecth()
-              module to interact with the Make's API in order to
-               promt the website user to start a demonstration
+              module to interact indirectly with the Make's API via a webhook
+              in order to promt the website user to start a demonstration
                 of the project in trial version. The Make's API
                  allows to trigger workflows in JavaScript
                   by using automated HTTP requests:
@@ -1080,7 +1080,24 @@
           <p class="greybox">
             <pre class="greybox">
 
-              js code
+              # <Table></Table>he webhook url is set up in Make by creating an account and creating a scenario
+              # that is triggered in Javascript as below:
+
+              const triggerWebhook = async () => {
+                const response = await fetch('https://hook.make.com/PROJECTS_WEBHOOK_URL', { 
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ key: 'value' }),
+                });
+
+                if (response.ok) {
+                  console.log('Webhook triggered successfully!');
+                } else {
+                  console.error('Failed to trigger webhook:', await response.text());
+                }
+              };
+
+              triggerWebhook();
             </pre>
           <form id="setup" action="Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
           <p class="colr4">
