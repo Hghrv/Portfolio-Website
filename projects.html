@@ -323,6 +323,14 @@
         </p>
         </pre>
         <p>
+          Note: The same result is achievable with Pg8000 (ideal for
+           low-load applications without C-denpendencies).
+            You can check the specific differences between
+            Pg8000 and psycopg2 on the following link:
+             <a href="https://www.geeksforgeeks.org/python/difference-between-psycopg2-and-pg8000-in-python/">
+              https://www.geeksforgeeks.org/python/difference-between-psycopg2-and-pg8000-in-python/</a>
+        </p>
+        <p>
           Let's add the tables that will store the following corresponding attributes:
           'id' (primary key), 'x-coordinates' and 'y-coordinates'. The connection and cursor
         </p>
@@ -489,7 +497,7 @@
       <p>
         The orchestration of dependencies is then updated in the Makefile
          to reflect requirements changes and refresh the virtual environment
-         for processing purposes, deep learning and automation.
+         for processing purposes, deep learning and automation:
       </p>
       <p class="greybox">
         <pre class="greybox">

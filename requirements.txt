@@ -11,7 +11,7 @@ pandas
 requests
 flask                # for python wed development
 psycopg2             # for sql databse and tables
+psycopg2-binary      # for simplified C dependencies
 psycopg[dev,test]    # for the base Python package
 psycopg_pool         # for the connection pool
 psycopg_c            # for the C speedup module
-psycopg2-binary      # for simplified C dependencies
