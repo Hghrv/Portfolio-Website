@@ -1219,7 +1219,7 @@
           <div class="heading_container">
 
             <h2 id="project7">
-              Project 7 - Draft for a GDPR Obfuscator project
+              Project 7 - GDPR Obfuscator for sensitive information
             </h2>
           </div>
           <h3>
@@ -1313,8 +1313,55 @@
             MVP (Most Valuable Product)
           </h3>
           <p>
-            Building a fully tested and automated GDPR Obfuscator
-             for deployment on AWS and third-party software integration.
+            In this project , we are presenting a fully tested and automated
+             Obfuscator under UK GDPR guidelines that for deployment on AWS and third-party software integration.
+             The project is deployed and hosted on AWS.
+          </p>
+
+          <h3>
+            AWS Lambda
+          </h3>
+          <p>
+          We are using a Lambda Handler to obfuscate sensitive information
+          contained in a file uploaded to an input s3 Bucket. A contextual event
+          triggers the Lambda when a new file is uploaded to the input bucket and an exact
+          content is written in a the output s3 bucfket but with obfuscated field.
+        </p>
+          <p>
+          Example of valid Csv content:
+        </p>
+        <p>
+          student_id,name,course,cohort,graduation_date,email_address
+        </p>
+        <p>
+          1234,'John Smith','Software','December','2024-03-31','j.smith@email.com'
+        </p>
+        <p>
+          Example of Json event: 
+          {
+            file_key: 's3://gdpr-data-storage/new_data/test_file.csv',
+            ppi_fields: ["name", "email_address"]
+          }
+        </p>
+        <p>
+          The tool can also handle Json and Parquet format: Uploading a valid file to the input bucket with a valid key will trigger
+          the Lambda handler and the resulting obfuscated file can be downloaded from the output in Csv, Json or Parquet formats.
+        </p>
+          <p>
+          Example of Csv output key and content
+          </p>
+          <p>
+          s3://obfuscated_data/obfuscated-file.csv
+          </p>
+          <p>
+          student_id,name,course,cohort,graduation_date,email_address
+          1234,'***','Software','December','2024-03-31','***'
+          </p>
+
+          <p>
+            In this project , we are presenting a fully tested and automated
+             Obfuscator under UK GDPR guidelines that for deployment on AWS and third-party software integration.
+             The project is deployed and hosted on AWS.
           </p>
           <p>&nbsp;</p>
           <h3>
@@ -1331,21 +1378,22 @@
           <h3>
             How to use
           </h3>
-          <p>- System Requirements</p>
-          <p>- Installation</p>
-          <p>- AWS Deployment</p>
-          <p>- Integration</p>
-          <p>- Note on Terraform deployment and Passkeys</p>
-          <p>- Note on Unit-Testing and Mock-Tests</p>
+          <p>- System Requirements:</p>
+          <p> Please folow setup instructions from the README.md in the project repository for detailed steps</p>
+          <p>- AWS Deployment / Integration:</p>
+          <p>The tool is compatible with Boto3 put_object() and put_object() methods. upload a file (Csv, or Json,
+             or Parquet format) to the s3 input key and download the obfuscated result (Csv/Json/Parquet) from the
+              output s3, using aws_cli or a pre-configured AWS EventBridge with a runtime of less than a minute.
+          </p>
+
+          
           <p>&nbsp;</p>
-          <h3>
-            Documentation
-          </h3>
-          <p>- Obfuscation principles</p>
-          <p>- Moto, Boto3</p>
-          <p>- Terraform documentation</p>
-          <p>- Amazon Web Services (AWS)</p>
+          <p>Link to Git repository:</p>
+          <a href="https://github.com/Hghrv/GDPR-Obfuscator">
+            GDPR-Obfuscator-Project
+          </a>
           <p>&nbsp;</p>
+
           <h3>
             Legal Notice
           </h3>
@@ -1354,9 +1402,7 @@
              are reserved by the owner TechReturners (Copyright 2025).
           </p>
           <p>&nbsp;</p>
-          <p>
-            - To be updated soon -
-          </p>
+
           <p>&nbsp;</p>
           <div class="heading_container">
 
