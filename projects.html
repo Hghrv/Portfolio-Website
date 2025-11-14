@@ -1086,7 +1086,7 @@
                  allows to trigger workflows in JavaScript
                   by using automated HTTP requests:
           </p>
-          < class="greybox">
+          <class="greybox">
             <pre class="greybox">
 
               # The webhook url is set up in Make by creating an account and creating a scenario
@@ -1310,7 +1310,7 @@
           </p>
           <p>&nbsp;</p>
           <h3>
-            MVP (Most Valuable Product)
+            MVP (Minimal Viable Product)
           </h3>
           <p>
             In this project , we are presenting a fully tested and automated
@@ -1337,7 +1337,7 @@
           1234,'John Smith','Software','December','2024-03-31','j.smith@email.com'
         </p>
         <p>
-          Example of Json event: 
+          Example of Json event:
           {
             file_key: 's3://gdpr-data-storage/new_data/test_file.csv',
             ppi_fields: ["name", "email_address"]
@@ -1348,7 +1348,7 @@
           the Lambda handler and the resulting obfuscated file can be downloaded from the output in Csv, Json or Parquet formats.
         </p>
           <p>
-          Example of Csv output key and content
+          Example of Csv output key and output content
           </p>
           <p>
           s3://obfuscated_data/obfuscated-file.csv
@@ -1386,8 +1386,90 @@
               output s3, using aws_cli or a pre-configured AWS EventBridge with a runtime of less than a minute.
           </p>
 
-          
           <p>&nbsp;</p>
+          
+          <h3>
+            Demonstration of the software
+          </h3>
+          <p>
+            A lambda handler is set on a dedicated AWS IAM account
+            with a contextual event in order to obfuscated all new
+            files inserted with a valid key. When a new file is uploaded
+            to the input S3 bucket, the existing file is overwitten as
+            well as the output file which is overwritten with the newly
+            processed obfuscation. This automation can hence be easily
+            integrated into a stream event (using AWS BridgeEvent for example).
+          </p>
+          <img href = "">
+          <p>
+            To demonstrate how the obfuscation tool would work within
+            a third-party module, let's send a local test file of type
+            Csv () to the
+            AWS S3 bucket:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+      aws s3 cp /path/to/local/file s3://gdpr-data-storage/new_data/test_file.csv
+            </pre>
+          </p>
+          
+          <p>
+            Now, let's download the obfuscated file from the
+            output S3 bucket:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+      aws s3 cp s3://gdpr-obfuscator-ouput/obfuscated_data/obfuscated-file.csv &lt;project_local_path&gt;
+            </pre>
+          </p>
+          <p>We get an obfuscated Csv output: </p>
+          
+          <p class="greybox">
+            <pre class="greybox">
+      student_id,name,course,cohort,graduation_date,email_address
+      1234,'***','Software','December','2024-03-31','***'
+            </pre>
+          </p>
+          <p>
+            The tool can also handle Json and Parquet files, for instance
+            let's send a local test file to the input S3 bucket:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+      aws s3 cp /path/to/local/file s3://gdpr-data-storage/new_data/test_file.json
+            </pre>
+          </p>
+          <p>Let's call the lambda handler manually</p>
+          <p class="greybox">
+            <pre class="greybox">
+      python src/lambda_handler.py
+            </pre>
+          </p>
+          <p>
+            Let's download the obfuscated Json file from the
+            output S3 bucket:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+      aws s3 cp s3://gdpr-obfuscator-ouput/obfuscated_data/obfuscated-file.csv &lt;project_local_path&gt;
+            </pre>
+          </p>
+
+          <p>We successfully get an obfuscated Json output: </p>
+          <p class="greybox">
+            <pre class="greybox">
+      {
+        "student_id": 1234,
+        "name": '***',
+        "course": 'Software',
+        "cohort": 'December',
+        "graduation_date": '2024-03-31',
+        "email_address": '***'
+      }
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+
           <p>Link to Git repository:</p>
           <a href="https://github.com/Hghrv/GDPR-Obfuscator">
             GDPR-Obfuscator-Project
@@ -1399,7 +1481,9 @@
           </h3>
           <p>
             All commercial rights related to this project
-             are reserved by the owner TechReturners (Copyright 2025).
+             are reserved by the owner <a href="https://www.techreturners.com/">
+              Tech Returners
+            </a> (Copyright 2025).
           </p>
           <p>&nbsp;</p>
 
