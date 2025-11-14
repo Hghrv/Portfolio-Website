@@ -1379,7 +1379,8 @@
             How to use
           </h3>
           <p>- System Requirements:</p>
-          <p> Please folow setup instructions from the README.md in the project repository for detailed steps</p>
+          <p> Please folow setup instructions from the README.md in the project repository via provided link below
+             for detailed steps</p>
           <p>- AWS Deployment / Integration:</p>
           <p>The tool is compatible with Boto3 put_object() and put_object() methods. upload a file (Csv, or Json,
              or Parquet format) to the s3 input key and download the obfuscated result (Csv/Json/Parquet) from the
@@ -1387,38 +1388,45 @@
           </p>
 
           <p>&nbsp;</p>
+          <p>Link to Git repository:</p>
+          <a href="https://github.com/Hghrv/GDPR-Obfuscator">
+            GDPR-Obfuscator-Project
+          </a>
+          <p>&nbsp;</p>
           
           <h3>
             Demonstration of the software
           </h3>
           <p>
             A lambda handler is set on a dedicated AWS IAM account
-            with a contextual event in order to obfuscated all new
-            files inserted with a valid key. When a new file is uploaded
-            to the input S3 bucket, the existing file is overwitten as
-            well as the output file which is overwritten with the newly
-            processed obfuscation. This automation can hence be easily
-            integrated into a stream event (using AWS BridgeEvent for example).
+             with a contextual event in order to obfuscated all new
+             files inserted with a valid key. When a new file is uploaded
+             to the input S3 bucket, the existing file is overwitten as
+             well as the output file which is overwritten with the newly
+             processed obfuscation. This automation can hence be easily
+             integrated into a stream event (using AWS BridgeEvent for example).
           </p>
           <img href = "">
           <p>
             To demonstrate how the obfuscation tool would work within
-            a third-party module, let's send a local test file of type
-            Csv () to the
+             a third-party module, let's send a local test file of type
+             Csv () to the
             AWS S3 bucket:
           </p>
           <p class="greybox">
             <pre class="greybox">
+
       aws s3 cp /path/to/local/file s3://gdpr-data-storage/new_data/test_file.csv
             </pre>
           </p>
           
           <p>
             Now, let's download the obfuscated file from the
-            output S3 bucket:
+             output S3 bucket:
           </p>
           <p class="greybox">
             <pre class="greybox">
+
       aws s3 cp s3://gdpr-obfuscator-ouput/obfuscated_data/obfuscated-file.csv &lt;project_local_path&gt;
             </pre>
           </p>
@@ -1426,31 +1434,35 @@
           
           <p class="greybox">
             <pre class="greybox">
+
       student_id,name,course,cohort,graduation_date,email_address
       1234,'***','Software','December','2024-03-31','***'
             </pre>
           </p>
           <p>
             The tool can also handle Json and Parquet files, for instance
-            let's send a local test file to the input S3 bucket:
+             let's send a local test file to the input S3 bucket:
           </p>
           <p class="greybox">
             <pre class="greybox">
+
       aws s3 cp /path/to/local/file s3://gdpr-data-storage/new_data/test_file.json
             </pre>
           </p>
           <p>Let's call the lambda handler manually</p>
           <p class="greybox">
             <pre class="greybox">
+
       python src/lambda_handler.py
             </pre>
           </p>
           <p>
             Let's download the obfuscated Json file from the
-            output S3 bucket:
+             output S3 bucket:
           </p>
           <p class="greybox">
             <pre class="greybox">
+
       aws s3 cp s3://gdpr-obfuscator-ouput/obfuscated_data/obfuscated-file.csv &lt;project_local_path&gt;
             </pre>
           </p>
@@ -1458,6 +1470,7 @@
           <p>We successfully get an obfuscated Json output: </p>
           <p class="greybox">
             <pre class="greybox">
+
       {
         "student_id": 1234,
         "name": '***',
@@ -1470,11 +1483,7 @@
           </p>
           <p>&nbsp;</p>
 
-          <p>Link to Git repository:</p>
-          <a href="https://github.com/Hghrv/GDPR-Obfuscator">
-            GDPR-Obfuscator-Project
-          </a>
-          <p>&nbsp;</p>
+          
 
           <h3>
             Legal Notice
