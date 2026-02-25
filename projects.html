@@ -1199,14 +1199,39 @@
             Terraform Hashicorp modules and documentation are available on their official webpage
              where an extensive and comprehensive guide is provided for developers (links below).
           </p>
-          <a href=" https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">[Terraform Hashicorp documentation link]</a>
+          <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">[Terraform Hashicorp documentation link]</a>
           <p>&nbsp;</p>
           <p>
             Cloud Deployment on Amazon Web Services (AWS) can be automated in bash with the handling of
              the short and simple commands: "terraform init", "terraform plan", "terraform apply". This is a great
              advantage as all the digital infrastructures can be deployed automatically once all automated mock tests have been successful.
           </p>
-          <img alt="Example: Terraform scripts for backend tf-state s3 bucket" src="#.png" width="900">
+          <p class="greybox">
+            <pre class="greybox">
+
+        backend "s3" {
+          bucket         = "gdpr-terraform-state-bucket" # Replace with your bucket name
+          key            = "terraform/.terraform/terraform.tfstate" # Define the path for the state file
+          region         = "eu-west-2"                # Match your bucket's region
+          encrypt        = true
+        }
+            </pre>
+          <p>&nbsp;</p>
+          <p>
+            For example, the Terraform script above allows the creation of a S3 bucket to hold the Terraform
+             built-state (or Terrafor Plan) in a .tf file on the AWS Platform.
+          </p>
+          <p>
+             An initial IAM account is first created in the main.tf file that will later also includes intructions for the backend bucket once a terraform plan
+             has been generated from the initial code (Then the Terraform plan are not saved locally but remotely on the AWS account).
+          </p>
+          <img alt="Example: Terraform scripts for backend tf-state s3 bucket" src="/Screenshot 2026-02-25 000844.png" width="900">
+          <p>&nbsp;</p>
+          <p>
+             S3 buckets for data input and data output can be created in different additional .tf files. Here is below a link to the
+             Terraform Folder below:
+          </p>
+          <a href="https://github.com/Hghrv/GDPR-Obfuscator/tree/main/terraform">[GDPR-Terraform project link]</a>
           <p>&nbsp;</p>
           <h3>
             Serverless applications with AWS Lambda
