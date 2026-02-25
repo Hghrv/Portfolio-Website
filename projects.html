@@ -1231,26 +1231,29 @@
              S3 buckets for data input and data output can be created in different additional .tf files. Here is below a link to the
              Terraform Folder below:
           </p>
-          <a href="https://github.com/Hghrv/GDPR-Obfuscator/tree/main/terraform">[GDPR-Terraform project link]</a>
+          <a href="https://github.com/Hghrv/GDPR-Obfuscator/tree/main/terraform">[GDPR-Terraform folder link]</a>
           <p>&nbsp;</p>
           <h3>
             Serverless applications with AWS Lambda
           </h3>
           <p>
-            Dynamic Database Connection and Ingestion
+            Dynamic database connections can be set in dedicated lambda handler for ingestion of raw data as shown
+             in the ETL (Extract / Transform / Load) pipeline illustrated in the chart below:
           </p>
-          <img alt="Ingest-Lambda function" src="#.png" width="900">
+          <img alt="Example: ETL Pipeline with dedicated Lambdas functions" src="/Screenshot 2026-02-25 003332.png" width="400">
           <p>&nbsp;</p>
           <p>
-            Data Transformation and Processing
+            Similarly, a Transfrom-Lambda handler could be set for the processing of data, while a Load-Lambda would upload the
+             processed data into a dedicated warehouse (usually in conventional STAR schemas).
           </p>
-          <img alt="Transform-Lambda" src="#.png" width="900">
-          <p>&nbsp;</p>
           <p>
-            Data Warehouse Loading
+            The wicklow project for instance provides a good application of this concept. where the ETL deploys a job scheduler
+           to manage the ingestion job and subsequent processes (AWS EventBridge, AWS Step Function), ensuring that new data
+           are processed and loaded into the data warehouse within 30 minutes. Here is a GitHub link to my Northcoders Team project (wicklow ETL) below:
           </p>
-          <img alt="Load Lambda" src="#.png" width="900">
+          <a href="https://github.com/Hghrv/wicklow-project?tab=readme-ov-file">[Wicklow ETL Repository]</a>
           <p>&nbsp;</p>
+
           <h3>
             Handling and processing unordered data
           </h3>
