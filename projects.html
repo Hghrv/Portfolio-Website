@@ -1293,13 +1293,25 @@
             AWS Testing with Pytest and Moto
           </h3>
           <p>
-            Let's illustrate how to run tests with Pytest and the use 
-            of Moto for the mocking of AWS containers in order to minimise costs
-            as tests sessions may sometimes be laborious during devlopment and refactoring
-            processes.
+            Let's illustrate how to run tests with Pytest and the use
+             of Moto for the mocking of AWS containers in order to minimise costs
+             as tests sessions may sometimes be laborious during development and refactoring
+             processes.
           </p>
           <img alt="AWS Tests Runs with Moto" src="#.png" width="900">
           <p>&nbsp;</p>
+          <p>In the above example:</p>
+          <p>
+            - A S3 bucket is mocked to test the get_data.py module.
+          </p>
+          <p>
+            - Decorations are added to pass the mocked S3 bucket as an argument of the tested module.
+        
+          </p>
+            - As noted previously, this method is also very convenient in order to run tests involving
+             big data or labourious tests session that are likely to incur costs if run
+             directly on an actual AWS S3 storage.
+          </p>
           <h3>
             PEP8 testing modules for Python 3
           </h3>
@@ -1359,7 +1371,7 @@
             Here is below the team's solution for the Welcome module in JAVA:
           </p>
           <p>&nbsp;</p>
-          <img alt="Team's solution" src="/Screenshot 2026-02-20 011134.png" width="900">
+          <img alt="Team's solution" src="/#.png" width="900">
           <p>&nbsp;</p>
           <p>
             The team found that most methods of the WelcomeMessage.java class were private
@@ -1369,7 +1381,7 @@
           </p>
           <p>
             The sowftare was first tested manually in the Intellij IDEA JDK interface.
-             In terms of automation, the initial display could be tested by running the
+             However, in terms of automation, the initial display could be tested by running the
             game and checking the logs for the expecting string to be printed.
           </p>
           <p>
@@ -1383,7 +1395,7 @@
           <p>
             This screenshot of the development interface provided by Intellij IDEA JDK  is a summarised example demonstrating the "Red-Green-Refactor" principle
             pertaining to JUnit plugins and highlighting parts of the source code (Red and green colouring for failed and passed tests respectively). This principle is common practice among developers as tests scripts are often
-            written before providing the solution code in order to insure that the ideal solution should pass all expected
+            written before providing the solution code in order to ensure that the ideal solution should pass all expected
             purity and accuracy tests (software's interactive behaviour).
           </p>
           <p>&nbsp;</p>
