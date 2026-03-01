@@ -1313,17 +1313,34 @@
              directly on an actual AWS S3 storage.
           </p>
           <p>&nbsp;</p>
+          <p>
+            Here is below a screenshot from <a href="project7">Project 7 (UK GDPR Obfuscator)</a> showing
+            unit-tests results for all the modules (including the Lambda handler itself testing the
+            actual AWS infrastructure from input to output):
+          </p>
+          <p><img alt="Runing unit tests with Pytest" src="pytest_results.png" width="900">
+          <p>&nbsp;</p>
+          <p>
+            The 30 tests
+             successfully passed in 32.58s, almost half than the 1 minute target of the
+             Minimal Viable Product initially required.
+          </p>
+          <p>&nbsp;</p>
           <h3>
             PEP8 testing modules for Python 3
           </h3>
           <p>
             In order to ensure PEP8 compliance, coverage tests and safety issues need to be assessed.
             This project is using Coverage as a pluging for Pytest, but there is a large variety of options
-            that exist to measure how much of our code is being tested.
+            that exist to measure how much of our code is being tested. Here is below a screenshot of coverage tests
+            with the Coverage plugin from <a href="project7">Project 7 (UK GDPR Obfuscator)</a>:
           </p>
+          <img alt="Runing coverage tests with Coverage plugins for Pytest" src="coverage_tests_results.png" width="900">
           <p>&nbsp;</p>
-          <img alt="Runing coverage tests with Coverage plugins for Pytest" src="#.png" width="900">
-          <p>&nbsp;</p>
+          <p>
+            Our coverage was of 95% as the project required the insertion of commented paragraph
+             to facilitate the implementation process by other teams.
+          </p>
           <p>
             Nowadays, Test-Driven Development has become a fundamental
             and required skill for efficient collaborative team work and
