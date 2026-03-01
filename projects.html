@@ -1286,26 +1286,28 @@
           <div class="heading_container">
 
             <h2 id="project5">
-              Project 5 - Unit testing and PEP8 compliance
+              Project 5 - Unit Testing and PEP8 Compliance
             </h2>
           </div>
           <h3>
             AWS Testing with Pytest and Moto
           </h3>
           <p>
-            Let's illustrate how to run tests with Pytest and the use
-             of Moto for the mocking of AWS containers in order to minimise costs
+            Let's illustrate unit-testing with Pytest and the use
+             of Moto for the mocking of AWS storage containers in order to minimise costs,
              as tests sessions may sometimes be laborious during development and refactoring
-             processes.
+             processes. For this convenient purpose, we are using Project 7 as an example
+             to illustrate the testing processes for desired outcomes.
           </p>
-          <img alt="AWS Tests Runs with Moto" src="#.png" width="900">
+          <img alt="AWS Testing with Moto" src="/Screenshot 2026-03-01 230758.png" width="900">
           <p>&nbsp;</p>
-          <p>In the above example:</p>
+          <p>In the above example, we can note the following observations:</p>
           <p>
-            - A S3 bucket is mocked to test the get_data.py module.
+            - A S3 bucket is mocked with a Pytest fixture in order to test the upload_to_output_s3.py module.
           </p>
           <p>
-            - Decorations are added to pass the mocked S3 bucket as an argument of the tested module.
+            - The Pytest fixture is defined to yield a boto3.client() connection and create the mocked bucket
+             which is then passed as an argument (mock_s3_bucket) of the test module.
           </p>
           <p>
             - As noted previously, this method is also very convenient in order to run tests involving
@@ -1339,7 +1341,8 @@
           <p>&nbsp;</p>
           <p>
             Our coverage was of 95% as the project required the insertion of commented paragraph
-             to facilitate the implementation process by other teams.
+             to facilitate the implementation process by other teams. Ideally however, at the prodution phase
+             a coverage of 100% is usually the standard expected as comments are no longer required in the final code.
           </p>
           <p>
             Nowadays, Test-Driven Development has become a fundamental
