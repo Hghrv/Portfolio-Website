@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+  <!-- Site Metas -->
+  <meta name="keywords" content="" >
+  <meta name="description" content="" >
+  <meta name="author" content="" >
+
+  <title>Projects portfolio</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" >
+
+
+  <!-- font wesome stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" >
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" >
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand mr-5" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              Projects portfolio
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="projects.html">Projects <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html"> Multi-Services </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+              </ul>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">&nbsp;</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+  </div>
+
+
+  <div class="body_bg layout_padding">
+
+
+    <!-- contact section -->
+
+    <section class="contact_section">
+        <div class="container">
+          <h2>Welcome to this Full-Stack presentation!</h2>
+          <p>Feel free to browse
+            through projects via the blue links provided below. Enjoy this
+             digital experience of problem solving and critical thinking. </p>
+          <h1 id="top">Let's get started!</h1>
+          <p>&nbsp;</p>
+          <p>Part 1:</p>
+          <!-- Link to the Project sections -->
+          <p><a href="#project1">Go to Project 1 - Data Engineering</a></p>
+          <p><a href="#project2">Go to Project 2 - Data Science</a></p>
+          <p><a href="#project3">Go to Project 3 - Analytics and Visual Ouput</a></p>
+          <p>&nbsp;</p>
+          <p>Part 2:</p>
+          <p><a href="#project4">Go to Project 4 - Cloud Computing</a></p>
+          <p><a href="#project5">Go to Project 5 - Unit Testing</a></p>
+          <p><a>Go to Project 6 - Cyber Security</a></p>
+          <p><a href="#project7">Go to Project 7 - UK GDPR Obfuscator</a></p>
+          <p><a>Go to Project 8 - Refactoring Machine Learning processes</a></p>
+          <p>&nbsp;</p>
+          <h2>
+              Deployment and presentation
+          </h2>
+          <p>&nbsp;</p>
+          <p>
+              The projects presented here are all interconnected. The task here is to build an automated
+               data management system that will feed a Deep Learning Neural Network for predictions. Further illustrations will be presented along
+               to provide further references.
+          </p>
+          <p>
+            You can visit the Git repository for this portfolio website via the following link:
+            <a href="https://hghrv.github.io/Portfolio-Website/">Visit the Git repository</a>
+          </p>
+          <p>&nbsp;</p>
+
+          <p>&nbsp;</p>
+          <div class="heading_container">
+
+            <h2 id="project4">
+              Project 4 - Cloud Computing
+            </h2>
+
+          </div>
+
+          <h3>
+            Terraform scripts
+          </h3>
+          <p>
+            Terraform comes across as being an ideal solution when it comes to automate
+             the creation of ressources and deployment of code on cloud providers such
+             as Amazon Web Services, Azure, or Google Cloud.
+          </p>
+          <p>
+            Terraform Hashicorp modules and documentation are available on their official webpage
+             where an extensive and comprehensive guide is provided for developers (links below).
+          </p>
+          <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">[Terraform Hashicorp documentation link]</a>
+          <p>&nbsp;</p>
+          <p>
+            Cloud Deployment on Amazon Web Services (AWS) can be automated in bash with the handling of
+             the short and simple commands: "terraform init", "terraform plan", "terraform apply". This is a great
+             advantage as all the digital infrastructures can be deployed automatically once all automated mock tests have been successful.
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+
+        backend "s3" {
+          bucket         = "gdpr-terraform-state-bucket" # Replace with your bucket name
+          key            = "terraform/.terraform/terraform.tfstate" # Define the path for the state file
+          region         = "eu-west-2"                # Match your bucket's region
+          encrypt        = true
+        }
+            </pre>
+          <p>&nbsp;</p>
+          <p>
+            For example, the Terraform script above allows the creation of a S3 bucket to hold the Terraform
+             built-state (or Terrafor Plan) in a .tf file on the AWS Platform.
+          </p>
+          <p>
+             An initial IAM account is first created in the main.tf file that will later also includes intructions for the backend bucket once a terraform plan
+             has been generated from the initial code (Then the Terraform plan are not saved locally but remotely on the AWS account).
+          </p>
+          <img alt="Example: Terraform scripts for backend tf-state s3 bucket" src="/Screenshot 2026-02-25 000844.png" width="900">
+          <p>&nbsp;</p>
+          <p>
+             S3 buckets for data input and data output can be created in different additional .tf files. Here is below a link to the
+             Terraform Folder below:
+          </p>
+          <a href="https://github.com/Hghrv/GDPR-Obfuscator/tree/main/terraform">[GDPR-Terraform folder link]</a>
+          <p>&nbsp;</p>
+          <h3>
+            Serverless applications with AWS Lambda
+          </h3>
+          <p>
+            Dynamic database connections can be set in dedicated lambda handler for ingestion of raw data as shown
+             in the ETL (Extract / Transform / Load) pipeline illustrated in the chart below:
+          </p>
+          <img alt="Example: ETL Pipeline with dedicated Lambdas functions" src="/Screenshot 2026-02-25 003332.png" width="400">
+          <p>&nbsp;</p>
+          <p>
+            Similarly, a Transfrom-Lambda handler could be set for the processing of data, while a Load-Lambda would upload the
+             processed data into a dedicated warehouse (usually in conventional STAR schemas).
+          </p>
+          <p>
+            The wicklow project for instance provides a good application of this concept. where the ETL deploys a job scheduler
+           to manage the ingestion job and subsequent processes (AWS EventBridge, AWS Step Function), ensuring that new data
+           are processed and loaded into the data warehouse within 30 minutes. Here is a GitHub link to my Northcoders Team project (wicklow ETL) below:
+          </p>
+          <a href="https://github.com/Hghrv/wicklow-project?tab=readme-ov-file">[Wicklow ETL Repository]</a>
+          <p>&nbsp;</p>
+
+          <h3>
+            Handling and processing unordered data
+          </h3>
+          <p>
+            . AWS Wrangler
+          </p>
+          <p>
+            The AWS Wrangler properties allows a smoother handling of preassigned tags
+             and metadata to improve scalabilty of ressources for higher efficiency.
+          </p>
+          <img alt="AWS Wrangler user interface" src="#.png" width="900">
+          <p>&nbsp;</p>
+          <p>
+            . Analytics and Data Mining with TABLEAU
+          </p>
+          <p>
+            Dedicated softwares such as Tableau provide data analysts with extraction and visualisation
+             tools that provide insights and meaning from the raw information collected in the data warehouse.
+          </p>
+          <img alt="Visualisations with Tableau" src="#.png" width="900">
+          <p>&nbsp;</p>
+          <p>
+            . Supercharging Analytics and Predictions with IBM Watsonx Services
+          </p>
+          <img alt="IBM watsonx user interface" src="#.png" width="900">
+          <p>&nbsp;</p>
+          <p><a href="#top">- Back to Top of Page - </a></p>
+          <p>&nbsp;</p>
+
+
+          <p>&nbsp;</p>
+        <p><a href="#top">- Back to Top of Page - </a></p>
+        </div>
+
+      </div>
+
+        <div class="container contact_bg layout_padding2-top">
+          <div class="row">
+
+          </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->
+
+  </div>
+  <!-- info section -->
+    <p>
+
+    </p>
+
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2025 All Rights Reserved By
+      <a href="">The Author</a>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      Developped from an empty Html template accessed at:
+      <a href="https://html.design/">Free Html Templates Copyright &copy; 2019</a>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      Note: For the purpose of this website, basic scripts (HTML, CSS, JavaScript) were edited
+       in 2025 by the author/user and further virtual environments and automated APIs layers
+        were added for presentation, testing,
+       demonstration, and educational purposes.
+        Version Control, Testing and Deployment were handled
+         with Linux Command Line Interface, Git and
+          Python 3 mainly.
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+</body>
+
+</html>

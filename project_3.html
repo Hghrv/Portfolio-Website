@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+  <!-- Site Metas -->
+  <meta name="keywords" content="" >
+  <meta name="description" content="" >
+  <meta name="author" content="" >
+
+  <title>Projects portfolio</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" >
+
+
+  <!-- font wesome stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" >
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" >
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand mr-5" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              Projects portfolio
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="projects.html">Projects <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html"> Multi-Services </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+              </ul>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">&nbsp;</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+  </div>
+
+
+  <div class="body_bg layout_padding">
+
+
+    <!-- contact section -->
+
+    <section class="contact_section">
+        <div class="container">
+          <h2>Welcome to this Full-Stack presentation!</h2>
+          <p>Feel free to browse
+            through projects via the blue links provided below. Enjoy this
+             digital experience of problem solving and critical thinking. </p>
+          <h1 id="top">Let's get started!</h1>
+          <p>&nbsp;</p>
+          <p>Part 1:</p>
+          <!-- Link to the Project sections -->
+          <p><a href="#project1">Go to Project 1 - Data Engineering</a></p>
+          <p><a href="#project2">Go to Project 2 - Data Science</a></p>
+          <p><a href="#project3">Go to Project 3 - Analytics and Visual Ouput</a></p>
+          <p>&nbsp;</p>
+          <p>Part 2:</p>
+          <p><a href="#project4">Go to Project 4 - Cloud Computing</a></p>
+          <p><a href="#project5">Go to Project 5 - Unit Testing</a></p>
+          <p><a>Go to Project 6 - Cyber Security</a></p>
+          <p><a href="#project7">Go to Project 7 - UK GDPR Obfuscator</a></p>
+          <p><a>Go to Project 8 - Refactoring Machine Learning processes</a></p>
+          <p>&nbsp;</p>
+          <h2>
+              Deployment and presentation
+          </h2>
+          <p>&nbsp;</p>
+          <p>
+              The projects presented here are all interconnected. The task here is to build an automated
+               data management system that will feed a Deep Learning Neural Network for predictions. Further illustrations will be presented along
+               to provide further references.
+          </p>
+          <p>
+            You can visit the Git repository for this portfolio website via the following link:
+            <a href="https://hghrv.github.io/Portfolio-Website/">Visit the Git repository</a>
+          </p>
+          <p>&nbsp;</p>
+
+      <div class="container">
+        <div class="heading_container">
+
+          <h2 id="project3">
+            Project 3- Data Analytics: Visualising datasets models and assessing accurracy
+          </h2>
+        </div>
+          <p>
+            In this section new data stored in the data warehouse are
+             used to train the neural network continually and produce a visual chart
+             for further monitoring of the data and the model's apparent behaviour.
+          </p>
+          In Keras, the imported Numpy and Matplotlib modules are working dynamically
+           using the Tensorflow backend. A visual outut of the data may be implemented with Keras as follows:
+          <p class="greybox">
+            <pre class="greybox">
+
+              # Visualising the dataset by index to check correct labelling
+
+              index  = 1000
+              k = train_set_x[index,:]
+              k = k.reshape((28, 28))
+              plt.title('Label is {label}'.format(label= training_data[1][index]))
+              plt.imshow(k, cmap='gray')
+
+
+              # Visualising different test cases for assessment against validation data
+
+              index  = 9997
+              k = test_set_x[index, :]
+              k = k.reshape((28, 28))
+              plt.title('Label is {label}'.format(label=(predictions[index], np.argmax(test_set_y, axis = 1)[index])))
+              plt.imshow(k, cmap='gray')
+
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The model is eventually being assessed in this data lake to determine its current accuracy metrics for the training dataset and the test dataset:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+
+              # Evaluating the model's scores and printing the accuracy in the training dataset
+
+              scores_train = nn_model.evaluate(train_set_x, train_set_y)
+              print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_train[1]*100))
+
+              # Setting the predictions on the test dataset
+
+              predictions = nn_model.predict(test_set_x)
+              predictions = np.argmax(predictions, axis = 1)
+              predictions
+
+              # Setting scores and printing the accuracy in the test dataset
+
+              scores_test = nn_model.evaluate(test_set_x, test_set_y)
+              print("\n%s: %.2f%%" % (nn_model.metrics_names[1], scores_test[1]*100))
+
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+          <p>Relevant local variables and interactive data can also be visualised dynamically
+             with the use of JavaScript to display variables from the Python environment. In terms
+             of added functionalities however, other Software Engineering frameworks, such as React
+             (JavaScript librairy) or node.js (JavaScript runtime environment)
+             for example, can also provide highly efficient ways to build similar frontend projects.
+
+          </p>
+          <p>
+              In this regard, it is worth noting the power of Python 3 and JavaScript alone during automation
+               and interactive displays as JavaScript can also effectively be used to run the
+               backend python file, while handling frontend tasks with high efficiency.
+          </p>
+          <p>
+            In order to illustrate this concept, a request from is added to the html file for this present wepage,
+            and displayed as below prompting the user to suggest a density level between 10 and 100 with or a default value of 35:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+              <code>
+              &lt;form action="/process.php method="POST" class="" "&gt;
+
+                  &lt;label for="density" class=""&gt;
+                      &lt;p class=""&gt;
+                        Enter a density level for your
+                        installed neural network:
+                      &lt;/p&gt;
+                  &lt;/label&gt;&lt;br&gt;
+
+                  &lt;input class="" type="text" id="density" name="density" value="35"&gt;&lt;br&gt;
+
+                    &lt;input class="" type="submit" value="Submit" disabled&gt;
+
+              &lt;/form&gt;
+              </code>
+
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Here below is the result after adding that script to the html file for this present
+             webpage at the desired display point:
+          </p>
+          <p>&nbsp;</p>
+          <form action="process.php" method="POST" class="">
+
+                  <label for="density" class="">
+                      <p class="">
+                        Enter a density level for your
+                      </p>
+                      <p class="">
+                        installed neural network:
+                      </p>
+                  </label><br>
+
+                  <input class="" type="text"  name="density" value="35" ><br>
+
+                  <p>&nbsp;</p>
+                  <input class="" type="submit" value="Submit" disabled>
+
+          </form>
+          <p>&nbsp;</p>
+
+          <p>
+            Notice however that classes are also added later to hml elements
+             to enable control of size, police, colours and
+             display from the CSS script (Updated code in the repository).
+              Let's deploy our designed frontend point:
+          </p>
+          <p>&nbsp;</p>
+          <form  action="process.php" method="POST" class="colr4" >
+
+            <label  class="colr1">
+                <p class="colr1">
+                  Enter a density level for the predictive neural network:
+                </p>
+
+              <input class="colr2" type="text"  name="density" value="35"><br>
+
+              <p>&nbsp;</p>
+              <input class="colr3_a" type="submit" value="Submit" onmousehover="alert('As you can see this Submit-button is currently desactivated and displayed for Devops and testing only!')" disabled>
+            </label><br>
+
+          </form>
+
+          <p>
+            (Above: Simulation of a display point on the user interface with input-box enabled and  'Submit' button currently disabled.)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Now our frontend point is almost good to go (with the 'Submit' button still
+             desactivated), and a PHP file can specify the actions for
+             the target buttons on the server side (Note that this can also be achieved
+              effectively with Node.js, Python Flask, Django, React or
+             Javascript which are all flexible options; PHP is somehow
+             useful as it precedes and overtakes Html protocols for faster displays).
+          </p>
+          <p>
+            Html actions can be set by updating the form parameters with ' action="process.php" method="post" ', while using javascript
+            to specify the action in the process.php file:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+
+          &lt;?php
+
+              // Using a JavaScript if-statement to trigger the action
+
+              if ($_SERVER['REQUEST_METHOD'] === 'POST' &amp;&amp; isset($_POST['form'])) {
+                  // logic of the action after the setting has been submitted by the user
+                  echo "Density level submitted successfully! JavaScript executed via PHP script.";
+                  echo "Get set and ready for the next phase of this presention!";
+              }
+
+          ? &gt;
+
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            This process is using JavaScript to trigger the action written in the PHP file.
+             For this purpose, the setting ' onclick="callPHP()" ' is added as a property
+              of the button element, and the html file can be updated with the following javascript:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+
+              &lt;script&gt;
+                function callPHP() {
+                    fetch('process.php', { method: 'POST' })
+                        .then(response =&gt; response.text())
+                        .then(data =&gt; alert(data));
+                }
+              &lt;/script&gt;
+
+            </pre>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Let's deploy our resulting user interface on the display point below
+             (with the 'Submit' button enabled this time!) and also update the last pipelines
+             connections to test that the actions are being triggered on submission:
+          </p>
+          <form id="update" action="process.php" method="POST" class="colr4" >
+
+            <label class="colr1">
+                <p class="colr1">
+                  Enter a density level for the predictive neural network:
+                </p>
+
+            <input class="colr2" type="text" id="density" name="density" value="35"><br>
+
+            <p>&nbsp;</p>
+            <button class="colr3" type="submit" value="Submit" onmousehover="alert('Click here to submit')" >Submit</button>
+            </label><br>
+
+          </form>
+          <script>
+            // Attach an event listener to the form
+            document.getElementById('update').addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent the default form submission behavior
+              console.log('Form submitted!'); // Your JavaScript logic here
+              alert('Submitting hyper-parameter ...');
+              fetch("/src/api.py", { method: "POST" }) 
+                .then(response => response.text()) 
+                .then(data => alert(data)) 
+                .catch(error => console.error("Error:", error));
+              alert("Density level submitted successfully!");
+              alert("Get set and ready for the next phase of this presention!");
+            });
+          </script>
+          <p>
+            ('Submit' button enabled after implementing last connections for testing and debugging purposes.)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Keeping in mind that the
+             variable density_level was set
+             when buiding the API, a visual rendering
+              can be designed from the front end.
+             Python makes this possible by implementing
+             an update_density module in the API as you can
+             see in the commented code below:
+          </p>
+
+          <p class="greybox">
+            <pre class="greybox">
+
+            from flask import Flask, request
+
+            app = Flask(__name__)
+
+            # Decorating a submit_density() function with the form's action and method
+
+            @app.route('/submit', methods=['POST'])
+            def update_density():
+                density = request.form['density']  # Accessing form density from user input
+                return density
+
+            #  Enabling detailed error tracebacks during development on main module.
+
+            if __name__ == '__main__':
+                app.run(debug=True)
+
+            </pre>
+            <p>
+              (The simple Flask App script above creates an updating unit module ready for import within the API.)
+            </p>
+          </p>
+          <p>&nbsp;</p>
+
+          <p>
+            For presentation purposes, let's use Data Engineering skills
+             to also deploy a 'Start' button using the Javascript fecth()
+              module to interact indirectly with the Make's API via a webhook
+              in order to promt the website user to start a demonstration
+                of the project in trial version. The Make's API
+                 allows to trigger workflows in JavaScript
+                  by using automated HTTP requests:
+          </p>
+          <p class="greybox">
+            <pre class="greybox">
+
+              # The webhook url is set up in Make by creating an account and creating a scenario
+              # that is triggered in Javascript as below:
+
+              const triggerWebhook = async () => {
+                const response = await fetch('https://hook.make.com/PROJECTS_WEBHOOK_URL', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ key: 'value' }),
+                });
+
+                if (response.ok) {
+                  console.log('Webhook triggered successfully!');
+                } else {
+                  console.error('Failed to trigger webhook:', await response.text());
+                }
+              };
+
+              triggerWebhook();
+            </pre>
+            <p>
+              Note that The same result is also achievable with Node.js which
+               is also a very popular option for frontend application and software
+                development projects. Typically in such Python Web
+                 environments data are commonly extracted from parsed
+                  data handled by servers with POST and Get Requests.
+            </p>
+            <p>Let's deploy the 'Start' button:</p>
+
+          <form id="setup" action="Makefile" method="POST" class="colr4" onmousehover="alert('Click here to run and deploy the predictive neural network backend.')">
+          <p class="colr4">
+            <input class="colr5" value="START" type="submit" onclick="runMakefile()">
+          </p>
+          </form>
+          <script>
+
+            function runMakefile() {
+                fetch('/Makefile', { method: 'POST' })
+                    .then(response => response.text())
+                    .then(data => alert(data))
+                    .catch(error => console.error('Error:', error));
+
+            document.getElementById("setup").addEventListener("submit", () => {
+                fetch("/src/api.py", { method: "POST" }) 
+                  .then(response => response.text()) 
+                  .then(data => alert(data)) 
+                  .catch(error => console.error("Error:", error));
+                alert("Density level submitted.");
+                alert("JavaScript executed successfully!");
+                alert("Get set and ready for the next phase of this presention.");    
+              });
+    
+
+            document.getElementById("update").addEventListener("submit", () => {
+              fetch("/src/api.py", { method: "POST" })
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error("Error:", error));
+            });
+                      }
+            
+          </script>
+          <p>&nbsp;</p>
+          <p>
+            You can try to visualise the output of the whole pipeline yourself
+             with our last settings-box deployed above by clicking the
+              'Submit' button, which will also trigger the Makefile as
+             well as related backend modules in the virtual python environment.
+              Once the project is fully installed, visual outputs of data should
+               be generated on the frontend user interface by
+               Matplotlib using the Tensorflow framework in Keras.
+          </p>
+          <p>
+            You should however note that our
+             Javascript handlers are also
+              embedded within the html file
+               to ensure that the modules will still
+                be ran in browsers unable to handle
+                 PHP requests from the server side.
+          </p>
+          <p>We must also update our Javascript to trigger
+             the update_density() function from our Flask App,
+              so that the 'Start' button can be ready to run
+               the updated neural network.</p>
+          <p>&nbsp;</p>
+          <p>- To be updated -</p>
+          <p><a href="#top">- Back to Top of Page - </a></p>
+          <p>&nbsp;</p>
+
+        <p><a href="#top">- Back to Top of Page - </a></p>
+        </div>
+
+      </div>
+
+        <div class="container contact_bg layout_padding2-top">
+          <div class="row">
+
+          </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->
+
+  </div>
+  <!-- info section -->
+    <p>
+
+    </p>
+
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2025 All Rights Reserved By
+      <a href="">The Author</a>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      Developped from an empty Html template accessed at:
+      <a href="https://html.design/">Free Html Templates Copyright &copy; 2019</a>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      Note: For the purpose of this website, basic scripts (HTML, CSS, JavaScript) were edited
+       in 2025 by the author/user and further virtual environments and automated APIs layers
+        were added for presentation, testing,
+       demonstration, and educational purposes.
+        Version Control, Testing and Deployment were handled
+         with Linux Command Line Interface, Git and
+          Python 3 mainly.
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
