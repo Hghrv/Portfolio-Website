@@ -111,6 +111,12 @@ body {
   display: flex;
 }
 
+.hd_c {
+  border: 3px solid rgb(163, 163, 239);
+  margin-left: 0vw;
+  margin-right: 0vw;
+}
+
 .heading_container h2 {
   font-weight: bold;
   color: #050000;
