@@ -115,10 +115,10 @@
 
           <p>The amount of arrays or dots are the key weight-parameters to consider in operational research.</p>
 
-          <p>Combining CSS and Javascript highly improves display loading time</p>
+          <p>Combining CSS and Javascript highly improves display loading time.</p>
 
           <p>&nbsp;</p>
-          
+
 
           <div class= "square-wrapper">
 
@@ -522,6 +522,41 @@
               -->
 
         <div>&nbsp;</div>
+        <script>
+          // Create the observer
+        //	const observer = new IntersectionObserver(entries => {
+            // We will fill in the callback later...
+        //	});
+          
+          // Tell the observer which elements to track
+        //	observer.observe(document.querySelector('.square'));
+          
+          
+          
+          
+          
+          
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const square = entry.target.querySelector('.square');
+        
+            if (entry.isIntersecting) {
+              square.classList.add('square-animation');
+              return; // if we added the class, exit the function
+            }
+        
+            // We're not intersecting, so remove the class!
+            square.classList.remove('square-animation');
+          });
+        });
+        
+        observer.observe(document.querySelector('.square-wrapper'));
+          
+          observer.observe(document.querySelector('.square-wrapper2'));
+        
+          
+      </script>
+
 
               <p>The display can be tested tested at a high speed
                  with on-scroll animation requiring IntersectionObserver
@@ -541,41 +576,7 @@
 
 
 
-            <script>
-                // Create the observer
-              //	const observer = new IntersectionObserver(entries => {
-                  // We will fill in the callback later...
-              //	});
-                
-                // Tell the observer which elements to track
-              //	observer.observe(document.querySelector('.square'));
-                
-                
-                
-                
-                
-                
-              const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                  const square = entry.target.querySelector('.square');
-              
-                  if (entry.isIntersecting) {
-                    square.classList.add('square-animation');
-                    return; // if we added the class, exit the function
-                  }
-              
-                  // We're not intersecting, so remove the class!
-                  square.classList.remove('square-animation');
-                });
-              });
-              
-              observer.observe(document.querySelector('.square-wrapper'));
-                
-                observer.observe(document.querySelector('.square-wrapper2'));
-              
-                
-            </script>
-
+            
 
           <p>&nbsp;</p>
 
@@ -584,15 +585,10 @@
           <p>Testing a neural network with the Github planet model</p>
 
           <p>&nbsp;</p>
-          
-          
-
           <p>&nbsp;</p>
         <p><a href="#top">- Back to Top of Page - </a></p>
      </div>
         <p><a href="projects.html">- Back to Main Projects Page - </a></p>
-
-      </div>
 
         <div class="container contact_bg layout_padding2-top">
           <div class="row">
